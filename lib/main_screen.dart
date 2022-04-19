@@ -1,3 +1,4 @@
+import 'package:courses_app/pages/homepage.dart';
 import 'package:flutter/material.dart';
 // import 'package:shop_flutter_app/screens/main/home_page.dart';
 // import 'package:shop_flutter_app/screens/main/podcast_page.dart';
@@ -30,16 +31,19 @@ class MainScreenState extends State<MainScreen> {
       // ),
       body: Container(
         color: Colors.orange[100],
-        // child: AnimatedSwitcher(
-        //   duration: const Duration(milliseconds: 200),
-        //   child: <Widget>[
-        //     // const HomePage(),
-        //     // const PodcastPage(),
-        //     // const ProfilePage(),
-        //   ][currentTab],
-        // ),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child: <Widget>[
+            const HomePage(),
+            const HomePage(),
+            const HomePage(),
+            // const PodcastPage(),
+            // const ProfilePage(),
+          ][currentTab],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Color(0xFFE57373),
         currentIndex: currentTab,
         onTap: (int i) {
           setState(() => currentTab = i);
