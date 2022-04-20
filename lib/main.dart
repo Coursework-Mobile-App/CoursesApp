@@ -6,7 +6,6 @@ void main() {
     theme: ThemeData(
       primaryColor: Colors.amber,
     ),
-    color: Colors.black,
     home: MainScreen(),
   ));
 }

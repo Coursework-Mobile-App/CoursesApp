@@ -1,5 +1,6 @@
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/dummy_data.dart';
+import 'package:courses_app/models/preaentation_widget.dart';
 import 'package:flutter/material.dart';
 
 final styleTags = [
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(22, 40, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(22, 25, 0, 0),
                   child: Container(
                     child: const Text.rich(
                       TextSpan(
@@ -142,6 +143,43 @@ class _HomePageState extends State<HomePage> {
                 ),
               ]),
             ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          height: 180,
+                          //padding: const EdgeInsets.symmetric(vertical: 15.0),
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: DUMMY_DATA.length,
+                              itemBuilder: (context, index) {
+                                return PresentationWidget(resList[index]);
+                              }),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
+            ),
+            /*SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 2 / 2,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0),
+              delegate: SliverChildBuilderDelegate(
+                (context, int index1) {
+                  var el = PresentationWidget(resList[index1]);
+                  return el;
+                },
+                childCount: resList.length,
+              ),
+            )*/
           ],
         ),
       ),

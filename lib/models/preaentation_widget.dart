@@ -22,7 +22,7 @@ class _PresentationWidgetState extends State<PresentationWidget> {
             color: Colors.transparent,
             child: Container(
               height: 180,
-              width: 170,
+              width: 210,
               child: Stack(
                 children: [
                   Container(
