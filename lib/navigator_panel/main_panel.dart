@@ -43,7 +43,7 @@ class MainScreenState extends State<MainScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Color(0xFFE57373),
+        fixedColor: Color(0xFFEC407A),
         currentIndex: currentTab,
         onTap: (int i) {
           setState(() => currentTab = i);
@@ -51,21 +51,21 @@ class MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.home_outlined,
               size: iconSize,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.shopping_cart,
+              Icons.headphones_outlined,
               size: iconSize,
             ),
             label: 'Podcast',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person,
+              Icons.person_outline,
               size: iconSize,
             ),
             label: 'Profile',
