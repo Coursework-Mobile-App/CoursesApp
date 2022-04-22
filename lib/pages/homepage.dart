@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                   bottom: Radius.circular(25),
                 ),
               ),
-              backgroundColor: Color(0xFFE57373),
+              backgroundColor: Color(0xFFEC407A),
               floating: false,
               expandedHeight: 20.0,
               flexibleSpace: FlexibleSpaceBar(
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 5.0),
                                         decoration: const BoxDecoration(
-                                          color: Color(0xFFE57373),
+                                          color: Color(0xFFEC407A),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(15)),
                                         ),
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 5.0),
                                         decoration: const BoxDecoration(
-                                          color: Color(0xFFE57373),
+                                          color: Color(0xFFEC407A),
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(15)),
                                         ),
@@ -166,6 +166,37 @@ class _HomePageState extends State<HomePage> {
                 ),
               ]),
             ),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              DefaultTabController(
+                  length: 3,
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
+                      child: Column(
+                        children: [
+                          Container(
+                            //height: 50,
+                            width: 50,
+                            color: Colors.transparent,
+                          ),
+                          Container(
+                              color: Colors.white38,
+                              child: TabBar(
+                                labelColor: Colors.white,
+                                unselectedLabelColor: Colors.black,
+                                indicator: BoxDecoration(
+                                    color: Color(0xFFEC407A),
+                                    borderRadius: BorderRadius.circular(18)),
+                                tabs: [
+                                  Tab(text: 'Курсы'),
+                                  Tab(text: 'Статьи'),
+                                  Tab(text: 'Микс')
+                                ],
+                              ))
+                        ],
+                      )))
+            ]))
             /*SliverGrid(
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
