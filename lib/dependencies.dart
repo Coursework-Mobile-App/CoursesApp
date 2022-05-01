@@ -16,7 +16,7 @@ import 'navigator_panel/navigator.dart';
 class Dependencies {
   // final ProductApiDao productsApi;
   // late final Store<GlobalState> store = MyStoreBuilder.build();
-  final Navigator navigator;
+  final AppNavigator navigator;
   // final CartProductDao cartProductDao;
   // final AuthDao authDao;
 
@@ -32,7 +32,7 @@ class Dependencies {
     // final authDao = AuthDaoApi(database: hiveBuilder.userBox);
 
     return _instance = Dependencies._(
-      Navigator(),
+      AppNavigator(),
       // NetworkApi(),
       // cartProductDao,
       // authDao,

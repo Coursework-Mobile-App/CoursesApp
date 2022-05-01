@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:courses_app/dependencies.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_events.dart';
 
@@ -61,7 +62,10 @@ class HomeBloc extends BlocBase {
     }
   }
 
-  void _handlePressCourseActionEvent() {}
+  void _handlePressCourseActionEvent() {
+    print("lol");
+    Dependencies.instance.navigator.openMockPage();
+  }
 
   void _handleOnSelectFilterActionEvent() {}
 
