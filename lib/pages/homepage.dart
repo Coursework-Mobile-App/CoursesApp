@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SliverToBoxAdapter(
                 child: Padding(
-              padding: const EdgeInsets.only(left: 14.0),
+              padding: const EdgeInsets.only(left: 14.0, top: 19),
               child: Container(
                 height: 67.0,
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -112,8 +112,31 @@ class _HomePageState extends State<HomePage> {
                       if (index == 0) {
                         return Material(
                           child: InkWell(
-                            //onTap: () {},
-                            child: Container(
+                              //onTap: () {},
+                              child: Stack(
+                            children: [
+                              Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                  border: Border.all(color: Color(0xFFEC407A)),
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(7.0),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.home,
+                                      color: Color(0xFFEC407A),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                              /*child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 5.0),
                               decoration: const BoxDecoration(
@@ -121,7 +144,8 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
                               ),
-                              child: const Padding(
+                              
+                              /*child: const Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Center(
                                   child: Icon(
@@ -129,9 +153,9 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.white,
                                   ),
                                 ),
+                              ),*/
+                            ),*/
                               ),
-                            ),
-                          ),
                         );
                       } else {
                         return Material(
@@ -140,17 +164,18 @@ class _HomePageState extends State<HomePage> {
                             child: Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 5.0),
-                              decoration: const BoxDecoration(
-                                color: Color(0xFFEC407A),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
+                                border: Border.all(color: Color(0xFFEC407A)),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Center(
                                   child: Text(styleTags[index - 1],
                                       style: const TextStyle(
-                                        color: Color(0xFFFFFAFA),
+                                        color: Color(0xFFEC407A),
                                         fontSize: 14,
                                       )),
                                 ),
@@ -164,7 +189,7 @@ class _HomePageState extends State<HomePage> {
             )),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.only(left: 22.0, top: 20),
+                padding: const EdgeInsets.only(left: 22.0, top: 20, bottom: 10),
                 child: Container(
                   child: const Text.rich(
                     TextSpan(
@@ -172,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                         fontWeight: FontWeight.w800,
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 17,
                       ),
                     ),
                   ),
@@ -215,12 +240,13 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.white,
               bottom: TabBar(
                 //isScrollable: true,
-                padding: const EdgeInsets.fromLTRB(22, 0, 2, 0),
-                labelColor: Colors.white,
+                padding: const EdgeInsets.fromLTRB(22, 0, 2, 10),
+                labelColor: Color(0xFFEC407A),
                 unselectedLabelColor: Colors.black,
                 indicator: BoxDecoration(
-                    color: Color(0xFFEC407A),
-                    borderRadius: BorderRadius.circular(18)),
+                    color: Colors.white,
+                    border: Border.all(color: Color(0xFFEC407A)),
+                    borderRadius: BorderRadius.circular(28)),
                 tabs: [
                   Tab(text: 'Курсы'),
                   Tab(text: 'Статьи'),

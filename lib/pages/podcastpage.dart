@@ -1,3 +1,8 @@
+import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/data/dummy_data.dart';
+import 'package:courses_app/models/present_article.dart';
+import 'package:courses_app/models/present_podcast.dart';
+import 'package:courses_app/models/data/pummy_data.dart';
 import 'package:flutter/material.dart';
 
 class PodcastPage extends StatefulWidget {
@@ -8,6 +13,8 @@ class PodcastPage extends StatefulWidget {
 }
 
 class _PodcastPageState extends State<PodcastPage> {
+  List<Article> resList = DUMMY_DATA;
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -21,7 +28,7 @@ class _PodcastPageState extends State<PodcastPage> {
               bottom: Radius.circular(35),
             ),
           ),
-          backgroundColor: Colors.grey[100],
+          backgroundColor: Colors.white,
           floating: false,
           expandedHeight: 20.0,
           flexibleSpace: const FlexibleSpaceBar(
@@ -37,7 +44,121 @@ class _PodcastPageState extends State<PodcastPage> {
               onPressed: () => null,
             ),
           ],
-        )
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30, bottom: 10),
+            child: Container(
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: 'Актуальное',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    fontSize: 21,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate([
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      height: 330,
+                      //padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: DUMMY_DATA.length,
+                          itemBuilder: (context, index) {
+                            return PresentPodcast(PUMMY_DATA[index], 230, 300);
+                          }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 0, bottom: 20),
+            child: Container(
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: 'Плейлисты с выпусками',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    fontSize: 21,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate([
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      //padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: DUMMY_DATA.length,
+                          itemBuilder: (context, index) {
+                            return PresentPodcast(PUMMY_DATA[index], 130, 200);
+                          }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            child: Container(
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: const TextSpan(
+                  text: 'Категории',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    fontSize: 19,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            (context, i) {
+              return PresentPodcast(PUMMY_DATA[i], 170, 170);
+            },
+            childCount: PUMMY_DATA.length,
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 0,
+            crossAxisSpacing: 10,
+            crossAxisCount: 2,
+            childAspectRatio: 1 / 1.45,
+          ),
+        ),
       ],
     );
   }
