@@ -1,4 +1,4 @@
-import 'article.dart';
+import '../article.dart';
 
 var DUMMY_DATA = [
   Article(

@@ -1,4 +1,4 @@
-import 'article.dart';
+import '../article.dart';
 
 var MUMMY_DATA = [
   Article(
