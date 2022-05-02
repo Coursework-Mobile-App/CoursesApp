@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'package:courses_app/bloc_architecture/bloc_home/handle_action_event.dart';
+import 'package:courses_app/dependencies.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_events.dart';
 
-class HomeBloc extends BlocBase {
+class HomeBloc extends BlocBase with HandleActionEvent{
   // stream controllers
   final StreamController<int> _pressCourseController = StreamController<int>();
   final StreamController<int> _pressFilterController = StreamController<int>();
@@ -46,13 +48,16 @@ class HomeBloc extends BlocBase {
   void _handleEvent(HomeBlocEvent event) {
     switch (event) {
       case HomeBlocEvent.onPressCourseAction:
-        _handlePressCourseActionEvent();
+        handlePressCourseActionEvent();
         break;
       case HomeBlocEvent.onSelectFilterAction:
-        _handleOnSelectFilterActionEvent();
+        handleOnSelectFilterActionEvent();
         break;
       case HomeBlocEvent.onClickProfileAction:
-        _handleOnClickProfileActionEvent();
+        handleOnClickProfileActionEvent();
+        break;
+      case HomeBlocEvent.loadContentAction:
+        handleLoadContentActionEvent();
         break;
       default:
         // чтобы гарантировать, что мы не пропустим ни один кейс enum-а
@@ -60,10 +65,4 @@ class HomeBloc extends BlocBase {
         break;
     }
   }
-
-  void _handlePressCourseActionEvent() {}
-
-  void _handleOnSelectFilterActionEvent() {}
-
-  void _handleOnClickProfileActionEvent() {}
 }

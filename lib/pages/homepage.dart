@@ -1,8 +1,11 @@
+import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
+import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/dummy_data.dart';
 import 'package:courses_app/models/mummy_data.dart';
 import 'package:courses_app/models/preaentation_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 final styleTags = [
   'Курсы',
@@ -31,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final HomeBloc bloc = BlocProvider.of<HomeBloc>(context);
     return DefaultTabController(
       length: 3,
       child: SafeArea(
@@ -189,7 +193,14 @@ class _HomePageState extends State<HomePage> {
                               scrollDirection: Axis.horizontal,
                               itemCount: DUMMY_DATA.length,
                               itemBuilder: (context, index) {
-                                return PresentationWidget(resList[index]);
+                                return GestureDetector(
+                                  child: PresentationWidget(resList[index]),
+                                  onLongPress: () => {
+                                    print("AFAF"),
+                                    bloc.inEvent
+                                        .add(HomeBlocEvent.onPressCourseAction)
+                                  },
+                                );
                               }),
                         ),
                       ),

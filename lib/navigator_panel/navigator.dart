@@ -1,7 +1,9 @@
+import 'package:courses_app/pages/mockpage.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
 
-class Navigator {
+class AppNavigator {
   // Глобальный навигатор
   static final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -25,6 +27,9 @@ class Navigator {
   //       builder: (context) => const AuthScreen(),
   //     ));
 
+  openMockPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => const MockPage(),
+      ));
 
   // вроде костыльный метод для открытия главной страницы
   // replaceMainPage() {

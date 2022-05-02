@@ -1,6 +1,8 @@
+import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/pages/homepage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:shop_flutter_app/screens/main/home_page.dart';
 // import 'package:shop_flutter_app/screens/main/podcast_page.dart';
 // import 'package:shop_flutter_app/screens/main/profile_page.dart';
@@ -35,7 +37,10 @@ class MainScreenState extends State<MainScreen> {
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 200),
           child: <Widget>[
-            const HomePage(),
+            BlocProvider(
+              child: const HomePage(),
+              create: (BuildContext context) => HomeBloc(),
+            ),
             const PodcastPage(),
             const HomePage(),
             // const PodcastPage(),
