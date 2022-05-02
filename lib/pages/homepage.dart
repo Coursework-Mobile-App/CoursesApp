@@ -1,9 +1,9 @@
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/dummy_data.dart';
-import 'package:courses_app/models/mummy_data.dart';
-import 'package:courses_app/models/preaentation_widget.dart';
+import 'package:courses_app/models/data/dummy_data.dart';
+import 'package:courses_app/models/data/mummy_data.dart';
+import 'package:courses_app/models/present_article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
