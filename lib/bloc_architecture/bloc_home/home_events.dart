@@ -1,6 +1,7 @@
 enum HomeBlocEvent {
   onPressCourseAction,
   onSelectFilterAction,
-  onClickProfileAction
+  onClickProfileAction,
+  loadContentAction,
   // ...другие события, которые будет обрабатывать Bloc
 }

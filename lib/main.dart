@@ -1,6 +1,5 @@
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/navigator_panel/navigator.dart';
-import 'package:courses_app/pages/mockpage.dart';
 import 'package:flutter/material.dart';
 import 'navigator_panel/main_panel.dart';
 
