@@ -8,7 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.1"
-<<<<<<< HEAD
   bloc:
     dependency: transitive
     description:
@@ -16,8 +15,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.3"
-=======
->>>>>>> main
   boolean_selector:
     dependency: transitive
     description:
@@ -46,8 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-<<<<<<< HEAD
-=======
   carousel_slider:
     dependency: "direct main"
     description:
@@ -55,7 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.1"
->>>>>>> main
   characters:
     dependency: transitive
     description:
@@ -90,11 +84,7 @@ packages:
       name: crypto
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "3.0.2"
-=======
-    version: "3.0.1"
->>>>>>> main
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -128,7 +118,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   flutter_bloc:
     dependency: "direct main"
     description:
@@ -136,8 +125,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.1"
-=======
->>>>>>> main
   flutter_blurhash:
     dependency: transitive
     description:
@@ -164,7 +151,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   hive:
     dependency: "direct main"
     description:
@@ -172,8 +158,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-=======
->>>>>>> main
   http:
     dependency: transitive
     description:
@@ -209,7 +193,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-<<<<<<< HEAD
   nested:
     dependency: transitive
     description:
@@ -217,8 +200,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-=======
->>>>>>> main
   octo_image:
     dependency: transitive
     description:
@@ -310,7 +291,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
-<<<<<<< HEAD
   provider:
     dependency: "direct main"
     description:
@@ -318,8 +298,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.2"
-=======
->>>>>>> main
   rxdart:
     dependency: transitive
     description:
@@ -327,8 +305,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.3"
-<<<<<<< HEAD
-=======
   scroll_snap_list:
     dependency: "direct main"
     description:
@@ -336,7 +312,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.6"
->>>>>>> main
   sky_engine:
     dependency: transitive
     description: flutter
