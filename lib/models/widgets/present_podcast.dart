@@ -1,7 +1,7 @@
 import 'package:courses_app/models/podcast.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'article.dart';
+import '../article.dart';
 
 class PresentPodcast extends StatefulWidget {
   final Podcast article;

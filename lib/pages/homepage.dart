@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/data/mummy_data.dart';
-import 'package:courses_app/models/present_article.dart';
+import 'package:courses_app/models/data/user_data.dart';
+import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,11 +54,18 @@ class _HomePageState extends State<HomePage> {
                         bottom: 6,
                       ),
                       child: CircleAvatar(
-                        backgroundColor: Color(0xFFEC407A),
-                        radius: 36,
-                        child: Image.network(
-                            "https://flomaster.club/uploads/posts/2021-11/1635833030_1-flomaster-club-p-narisovannii-yeltsin-krasivii-risunok-1.png"),
-                      ),
+                          backgroundColor: Color(0xFFEC407A),
+                          radius: 36,
+                          child: ClipOval(
+                            child: Material(
+                              color: Colors.transparent,
+                              child: Ink.image(
+                                image: CachedNetworkImageProvider(
+                                    user_info.coverImage),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          )),
                     ),
                     Expanded(
                       child: Padding(
@@ -66,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Добрый день, Павел!",
+                              "Добрый день, Василиса!",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,

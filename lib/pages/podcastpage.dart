@@ -1,7 +1,7 @@
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
-import 'package:courses_app/models/present_article.dart';
-import 'package:courses_app/models/present_podcast.dart';
+import 'package:courses_app/models/widgets/present_article.dart';
+import 'package:courses_app/models/widgets/present_podcast.dart';
 import 'package:courses_app/models/data/pummy_data.dart';
 import 'package:flutter/material.dart';
 
