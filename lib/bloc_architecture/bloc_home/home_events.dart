@@ -1,7 +1,7 @@
 abstract class HomeBlocEvent {}
 
-class OnPressCourseAction extends HomeBlocEvent {
-  OnPressCourseAction();
+class OnPressContentItemAction extends HomeBlocEvent {
+  OnPressContentItemAction();
 }
 
 class OnSelectFilterAction extends HomeBlocEvent {

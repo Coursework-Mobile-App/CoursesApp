@@ -43,14 +43,14 @@ class _PresentationWidgetState extends State<PresentationWidget> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {
-                      //Navigator.of(context).push(
-                      //MaterialPageRoute(
-                      //builder: (context) => ArtViewPage(art: widget.art),
-                      //),
-                      //);
-                      //print("Container clicked");
-                    },
+                    // onTap: () {
+                    //Navigator.of(context).push(
+                    //MaterialPageRoute(
+                    //builder: (context) => ArtViewPage(art: widget.art),
+                    //),
+                    //);
+                    //print("Container clicked");
+                    // },
                     child: Container(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20)),

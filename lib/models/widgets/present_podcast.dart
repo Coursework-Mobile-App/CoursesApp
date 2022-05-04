@@ -48,9 +48,6 @@ class _PresentPodcastState extends State<PresentPodcast> {
                         //borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {},
-                    ),
                   ],
                 ),
               ),

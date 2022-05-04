@@ -1,4 +1,7 @@
+import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/pages/mockpage.dart';
+import 'package:courses_app/pages/podcastpage.dart';
+import 'package:courses_app/pages/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
@@ -12,7 +15,7 @@ class AppNavigator {
 
   // Локальный навигатор - методы
   openHomePage() => bottomBarKey.currentState?.openHomePage();
-  openPodcastPage() => bottomBarKey.currentState?.openPodcastPage();
+  openPodcastsPage() => bottomBarKey.currentState?.openPodcastsPage();
   openProfilePage() => bottomBarKey.currentState?.openProfilePage();
 
   // Глобальный навигатор - методы
@@ -30,6 +33,15 @@ class AppNavigator {
   openMockPage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const MockPage(),
       ));
+
+
+  openPodcastPage() => navigatorKey.currentState?.push (MaterialPageRoute(
+    builder: (context) => const PodcastPage(),
+  ));
+
+  // openArticlePage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        // builder: (context) => PresentationWidget(),
+      // ));
 
   // вроде костыльный метод для открытия главной страницы
   // replaceMainPage() {

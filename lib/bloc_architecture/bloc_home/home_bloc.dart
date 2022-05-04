@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'package:courses_app/bloc_architecture/bloc_home/handle_action_event.dart';
+import 'package:courses_app/bloc_architecture/bloc_home/home_handle_action_event.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_events.dart';
 
-class HomeBloc extends BlocBase with HandleActionEvent{
+class HomeBloc extends BlocBase with HomeHandleActionEvent{
   // stream controllers
   final StreamController<int> _pressCourseController = StreamController<int>();
   final StreamController<int> _pressFilterController = StreamController<int>();
@@ -47,8 +47,8 @@ class HomeBloc extends BlocBase with HandleActionEvent{
 
   void _handleEvent(HomeBlocEvent event) {
     switch (event.runtimeType) {
-      case OnPressCourseAction:
-        handlePressCourseActionEvent();
+      case OnPressContentItemAction:
+        handleContentItemActionEvent();
         break;
       case OnSelectFilterAction:
         handleOnSelectFilterActionEvent();

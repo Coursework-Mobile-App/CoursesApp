@@ -1,3 +1,5 @@
+import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_bloc.dart';
+import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_events.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
@@ -17,6 +19,7 @@ class _PodcastPageState extends State<PodcastPage> {
 
   @override
   Widget build(BuildContext context) {
+    PodcastBloc bloc = PodcastBloc();
     return CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -77,7 +80,12 @@ class _PodcastPageState extends State<PodcastPage> {
                           scrollDirection: Axis.horizontal,
                           itemCount: DUMMY_DATA.length,
                           itemBuilder: (context, index) {
-                            return PresentPodcast(PUMMY_DATA[index], 230, 300);
+                            return GestureDetector(
+                                child:
+                                    PresentPodcast(PUMMY_DATA[index], 230, 300),
+                                onTap: () => {
+                                      bloc.inEvent.add(OnClickPodcastAction()),
+                                    });
                           }),
                     ),
                   ),

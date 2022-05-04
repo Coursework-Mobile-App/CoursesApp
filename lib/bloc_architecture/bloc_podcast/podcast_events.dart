@@ -1,4 +1,5 @@
-enum PodcastBlocEvent {
- onClickPodcastAction
- // ...другие события, которые будет обрабатывать Bloc
+abstract class PodcastBlocEvent {}
+
+class OnClickPodcastAction extends PodcastBlocEvent {
+  OnClickPodcastAction();
 }

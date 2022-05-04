@@ -1,4 +1,5 @@
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
+import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_bloc.dart';
 import 'package:courses_app/pages/homepage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
@@ -22,7 +23,7 @@ class MainScreenState extends State<MainScreen> {
   // Открытие главной страницы
   openHomePage() => setState(() => currentTab = 0);
   // Подкасты
-  openPodcastPage() => setState(() => currentTab = 1);
+  openPodcastsPage() => setState(() => currentTab = 1);
   // Профиль
   openProfilePage() => setState(() => currentTab = 2);
 
@@ -42,7 +43,10 @@ class MainScreenState extends State<MainScreen> {
               child: const HomePage(),
               create: (BuildContext context) => HomeBloc(),
             ),
-            const PodcastPage(),
+            BlocProvider(
+              child: const PodcastPage(),
+              create: (BuildContext context) => PodcastBloc(),
+            ),
             const ProfilePage(),
             // const PodcastPage(),
             // const ProfilePage(),

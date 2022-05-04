@@ -82,6 +82,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             GestureDetector(
+                              onTap: () =>
+                                  bloc.inEvent.add(OnClickProfileAction()),
                               child: const Text.rich(
                                 TextSpan(
                                   text: 'Перейти в профиль',
@@ -220,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           height: 180,
                           //padding: const EdgeInsets.symmetric(vertical: 15.0),
                           child: ListView.builder(
@@ -229,10 +231,9 @@ class _HomePageState extends State<HomePage> {
                               itemBuilder: (context, index) {
                                 return GestureDetector(
                                   child: PresentationWidget(resList[index]),
-                                  onLongPress: () => {
+                                  onTap: () => {
                                     print("AFAF"),
-                                    bloc.inEvent
-                                        .add(OnPressCourseAction())
+                                    bloc.inEvent.add(OnPressContentItemAction())
                                   },
                                 );
                               }),
@@ -275,11 +276,11 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, i) {
                     final currentTab = tabController.index;
                     if (currentTab == 0) {
-                      return buildTab(courseList);
+                      return buildTab(courseList, bloc);
                     } else if (currentTab == 1) {
-                      return buildTab(resList);
+                      return buildTab(resList, bloc);
                     } else {
-                      return buildTab(resList);
+                      return buildTab(resList, bloc);
                     }
                   },
                 );
@@ -291,11 +292,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildTab(List<Article> products) {
+  Widget buildTab(List<Article> products, HomeBloc bloc) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, i) {
-          return PresentationWidget(products[i]);
+          return GestureDetector(
+              child: PresentationWidget(products[i]),
+              onTap: () => bloc.inEvent.add(OnPressContentItemAction()));
         },
         childCount: products.length,
       ),
