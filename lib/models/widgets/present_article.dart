@@ -4,8 +4,9 @@ import '../article.dart';
 
 class PresentationWidget extends StatefulWidget {
   final Article article;
+  final int id;
 
-  PresentationWidget(this.article);
+  PresentationWidget(this.article, this.id);
 
   @override
   State<PresentationWidget> createState() => _PresentationWidgetState();
@@ -17,7 +18,8 @@ class _PresentationWidgetState extends State<PresentationWidget> {
     return Container(
         padding: const EdgeInsets.all(10.0),
         child: Hero(
-          tag: widget.article.coverImage,
+          tag: widget.id,
+          //tag: widget.article.coverImage,
           child: Material(
             color: Colors.transparent,
             child: Container(

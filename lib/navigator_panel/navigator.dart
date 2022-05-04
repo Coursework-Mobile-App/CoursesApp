@@ -1,4 +1,6 @@
+import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
+import 'package:courses_app/pages/articlepage.dart';
 import 'package:courses_app/pages/mockpage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
@@ -34,14 +36,20 @@ class AppNavigator {
         builder: (context) => const MockPage(),
       ));
 
+  openPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => const PodcastPage(),
+      ));
 
-  openPodcastPage() => navigatorKey.currentState?.push (MaterialPageRoute(
-    builder: (context) => const PodcastPage(),
-  ));
+  openArticlePage(Article article) =>
+      navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => ArticlePage(
+          article: article,
+        ),
+      ));
 
   // openArticlePage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        // builder: (context) => PresentationWidget(),
-      // ));
+  // builder: (context) => PresentationWidget(),
+  // ));
 
   // вроде костыльный метод для открытия главной страницы
   // replaceMainPage() {

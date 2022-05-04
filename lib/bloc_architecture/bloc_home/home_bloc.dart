@@ -4,7 +4,7 @@ import 'package:courses_app/dependencies.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_events.dart';
 
-class HomeBloc extends BlocBase with HomeHandleActionEvent{
+class HomeBloc extends BlocBase with HomeHandleActionEvent {
   // stream controllers
   final StreamController<int> _pressCourseController = StreamController<int>();
   final StreamController<int> _pressFilterController = StreamController<int>();
@@ -48,7 +48,8 @@ class HomeBloc extends BlocBase with HomeHandleActionEvent{
   void _handleEvent(HomeBlocEvent event) {
     switch (event.runtimeType) {
       case OnPressContentItemAction:
-        handleContentItemActionEvent();
+        handleContentItemActionEvent(
+            (event as OnPressContentItemAction).article);
         break;
       case OnSelectFilterAction:
         handleOnSelectFilterActionEvent();

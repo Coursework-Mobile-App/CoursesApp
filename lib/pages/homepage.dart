@@ -230,10 +230,12 @@ class _HomePageState extends State<HomePage> {
                               itemCount: DUMMY_DATA.length,
                               itemBuilder: (context, index) {
                                 return GestureDetector(
-                                  child: PresentationWidget(resList[index]),
+                                  child: PresentationWidget(
+                                      resList[index], index + 100),
                                   onTap: () => {
                                     print("AFAF"),
-                                    bloc.inEvent.add(OnPressContentItemAction())
+                                    bloc.inEvent.add(OnPressContentItemAction(
+                                        article: resList[index])),
                                   },
                                 );
                               }),
@@ -297,8 +299,9 @@ class _HomePageState extends State<HomePage> {
       delegate: SliverChildBuilderDelegate(
         (context, i) {
           return GestureDetector(
-              child: PresentationWidget(products[i]),
-              onTap: () => bloc.inEvent.add(OnPressContentItemAction()));
+              child: PresentationWidget(products[i], i),
+              onTap: () => bloc.inEvent
+                  .add(OnPressContentItemAction(article: products[i])));
         },
         childCount: products.length,
       ),
