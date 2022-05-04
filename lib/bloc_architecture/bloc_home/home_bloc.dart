@@ -46,21 +46,20 @@ class HomeBloc extends BlocBase with HandleActionEvent{
   }
 
   void _handleEvent(HomeBlocEvent event) {
-    switch (event) {
-      case HomeBlocEvent.onPressCourseAction:
+    switch (event.runtimeType) {
+      case OnPressCourseAction:
         handlePressCourseActionEvent();
         break;
-      case HomeBlocEvent.onSelectFilterAction:
+      case OnSelectFilterAction:
         handleOnSelectFilterActionEvent();
         break;
-      case HomeBlocEvent.onClickProfileAction:
+      case OnClickProfileAction:
         handleOnClickProfileActionEvent();
         break;
-      case HomeBlocEvent.loadContentAction:
+      case LoadContentAction:
         handleLoadContentActionEvent();
         break;
       default:
-        // чтобы гарантировать, что мы не пропустим ни один кейс enum-а
         assert(false, "Should never reach there");
         break;
     }

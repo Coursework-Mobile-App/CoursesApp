@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                                   onLongPress: () => {
                                     print("AFAF"),
                                     bloc.inEvent
-                                        .add(HomeBlocEvent.onPressCourseAction)
+                                        .add(OnPressCourseAction())
                                   },
                                 );
                               }),
