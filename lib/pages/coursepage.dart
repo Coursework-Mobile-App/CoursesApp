@@ -15,7 +15,9 @@ class _CoursePageState extends State<CoursePage> {
     return Hero(
       tag: widget.course.coverImage,
       child: Scaffold(
-        body: CustomScrollView(slivers: <Widget>[]),
+        body: CustomScrollView(slivers: <Widget>[
+          //SliverAppBar
+        ]),
       ),
     );
   }

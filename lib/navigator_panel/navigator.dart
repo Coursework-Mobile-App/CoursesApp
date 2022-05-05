@@ -1,6 +1,8 @@
 import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/course.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/pages/articlepage.dart';
+import 'package:courses_app/pages/coursepage.dart';
 import 'package:courses_app/pages/mockpage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
@@ -44,6 +46,13 @@ class AppNavigator {
       navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => ArticlePage(
           article: article,
+        ),
+      ));
+
+  openCoursePage(Course course) =>
+      navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => CoursePage(
+          course: course,
         ),
       ));
 

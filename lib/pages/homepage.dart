@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/course.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/data/mummy_data.dart';
 import 'package:courses_app/models/data/user_data.dart';
@@ -239,6 +240,11 @@ class _HomePageState extends State<HomePage> {
                                           OnPressContentItemAction(
                                               article:
                                                   resList[index] as Article));
+                                    } else {
+                                      return bloc.inEvent.add(
+                                          OnPressCourseItemAction(
+                                              course:
+                                                  resList[index] as Course));
                                     }
                                   },
                                 );
@@ -310,7 +316,8 @@ class _HomePageState extends State<HomePage> {
                   return bloc.inEvent.add(OnPressContentItemAction(
                       article: products[i] as Article));
                 } else {
-                  print('ff');
+                  return bloc.inEvent.add(
+                      OnPressCourseItemAction(course: products[i] as Course));
                 }
               });
           //=> bloc.inEvent
