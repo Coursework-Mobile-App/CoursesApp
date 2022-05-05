@@ -11,10 +11,8 @@ void main() async {
       child: MaterialApp(
         theme: ThemeData(
             primaryColor: Colors.white,
-            pageTransitionsTheme: PageTransitionsTheme(builders: {
+            pageTransitionsTheme: const PageTransitionsTheme(builders: {
               TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-
-              // for iOS - one which considers ancestor BackGestureWidthTheme
               TargetPlatform.iOS:
                   CupertinoPageTransitionsBuilderCustomBackGestureWidth(),
             })),

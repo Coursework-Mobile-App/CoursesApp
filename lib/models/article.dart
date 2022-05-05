@@ -1,12 +1,7 @@
-class Article {
-  final String id;
-  final String title;
-  final String section;
-  final String author;
-  //final List<String> tags;
-  final String text;
-  final String coverImage;
+import 'package:courses_app/models/item.dart';
 
-  Article(this.id, this.title, this.section /*, this.tags*/, this.text,
-      this.author, this.coverImage);
+class Article extends Item {
+  Article(String id, String title, String section, String text, String author,
+      List<String> tags, String coverImage)
+      : super(id, title, section, text, author, tags, coverImage);
 }

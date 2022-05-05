@@ -251,7 +251,8 @@ class _HomePageState extends State<HomePage> {
               pinned: true,
               backgroundColor: Colors.white,
               bottom: TabBar(
-                //isScrollable: true,
+                // isScrollable: true,
+                physics: ClampingScrollPhysics(),
                 padding: const EdgeInsets.fromLTRB(22, 0, 2, 10),
                 labelColor: Color(0xFFEC407A),
                 unselectedLabelColor: Colors.black,
