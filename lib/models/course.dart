@@ -1,17 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:courses_app/models/item.dart';
 
-class Course {
-  final String id;
-  final String title;
-  final String section;
-  //final List<String> tags;
-  //final List<Lesson> lessons;
-  final String text;
-  final String coverImage;
-  final List<String> videos;
+import 'lesson.dart';
 
-  Course(this.id, this.title, this.section /*, this.tags*/, this.text,
-      this.coverImage, this.videos);
+class Course extends Item {
+  final List<Lesson> lessons;
+  Course(
+    String id,
+    String title,
+    String section,
+    String text,
+    String author,
+    List<String> tags,
+    String coverImage,
+    this.lessons,
+  ) : super(id, title, section, text, author, tags, coverImage);
 
   static parse(DocumentSnapshot<Map<String, dynamic>> data) {
     // mock
@@ -30,6 +33,6 @@ class Course {
 
     // return Text("loading");
     return Course(data['id'], data['title'], data['section'], data['text'],
-        data['coverImage'], data['videos']);
+        data['author'], data['tags'], data['coverImage'], data['lessons']);
   }
 }

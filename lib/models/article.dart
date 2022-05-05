@@ -1,16 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:courses_app/models/item.dart';
 
-class Article {
-  final String id;
-  final String title;
-  final String section;
-  final String author;
-  //final List<String> tags;
-  final String text;
-  final String coverImage;
-
-  Article(this.id, this.title, this.section /*, this.tags*/, this.text,
-      this.author, this.coverImage);
+class Article extends Item {
+  Article(String id, String title, String section, String text, String author,
+      List<String> tags, String coverImage)
+      : super(id, title, section, text, author, tags, coverImage);
 
   static parse(DocumentSnapshot<Map<String, dynamic>> data) {
     // mock
@@ -29,6 +23,6 @@ class Article {
 
     // return Text("loading");
     return Article(data['id'], data['title'], data['section'], data['text'],
-        data['author'], data['coverImage']);
+        data['author'], data['tags'], data['coverImage']);
   }
 }

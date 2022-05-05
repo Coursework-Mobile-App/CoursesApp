@@ -6,6 +6,7 @@ import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/data/mummy_data.dart';
 import 'package:courses_app/models/data/user_data.dart';
+import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,8 +33,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Article> resList = DUMMY_DATA;
-  List<Article> courseList = MUMMY_DATA;
+  List<Item> resList = DUMMY_DATA;
+  List<Item> courseList = MUMMY_DATA;
 
   @override
   Widget build(BuildContext context) {
@@ -233,10 +234,13 @@ class _HomePageState extends State<HomePage> {
                                 return GestureDetector(
                                   child: PresentationWidget(
                                       resList[index], index + 100),
-                                  onTap: () => {
-                                    print("AFAF"),
-                                    bloc.inEvent.add(OnPressContentItemAction(
-                                        article: resList[index])),
+                                  onTap: () {
+                                    if (resList[index].runtimeType == Article) {
+                                      return bloc.inEvent.add(
+                                          OnPressContentItemAction(
+                                              article:
+                                                  resList[index] as Article));
+                                    }
                                   },
                                 );
                               }),
@@ -252,7 +256,8 @@ class _HomePageState extends State<HomePage> {
               pinned: true,
               backgroundColor: Colors.white,
               bottom: TabBar(
-                //isScrollable: true,
+                // isScrollable: true,
+                physics: ClampingScrollPhysics(),
                 padding: const EdgeInsets.fromLTRB(22, 0, 2, 10),
                 labelColor: Color(0xFFEC407A),
                 unselectedLabelColor: Colors.black,
@@ -295,14 +300,22 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildTab(List<Article> products, HomeBloc bloc) {
+  Widget buildTab(List<Item> products, HomeBloc bloc) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, i) {
           return GestureDetector(
               child: PresentationWidget(products[i], i),
-              onTap: () => bloc.inEvent
-                  .add(OnPressContentItemAction(article: products[i])));
+              onTap: () {
+                if (products[i].runtimeType == Article) {
+                  return bloc.inEvent.add(OnPressContentItemAction(
+                      article: products[i] as Article));
+                } else {
+                  print('ff');
+                }
+              });
+          //=> bloc.inEvent
+          //.add(OnPressContentItemAction(article: products[i])));
         },
         childCount: products.length,
       ),

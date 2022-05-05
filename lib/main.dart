@@ -8,6 +8,7 @@ import 'navigator_panel/main_panel.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cupertino_back_gesture/cupertino_back_gesture.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,14 +19,19 @@ void main() async {
   var x = UserNetwork();
   x.getUserFromDb("1");
   await Dependencies.init();
-
-  runApp(MaterialApp(
-    theme: ThemeData(
-      primaryColor: Colors.white,
-    ),
-    home: MainScreen(
-      key: AppNavigator.bottomBarKey,
-    ),
-    navigatorKey: AppNavigator.navigatorKey,
-  ));
+  runApp(BackGestureWidthTheme(
+      backGestureWidth: BackGestureWidth.fraction(1 / 2),
+      child: MaterialApp(
+        theme: ThemeData(
+            primaryColor: Colors.white,
+            pageTransitionsTheme: const PageTransitionsTheme(builders: {
+              TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+              TargetPlatform.iOS:
+                  CupertinoPageTransitionsBuilderCustomBackGestureWidth(),
+            })),
+        home: MainScreen(
+          key: AppNavigator.bottomBarKey,
+        ),
+        navigatorKey: AppNavigator.navigatorKey,
+      )));
 }

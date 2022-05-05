@@ -1,3 +1,6 @@
+import 'package:courses_app/models/course.dart';
+import 'package:courses_app/models/lesson.dart';
+
 import '../article.dart';
 
 var MUMMY_DATA = [
@@ -7,14 +10,25 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9991032/pexels-photo-9991032.jpeg?cs=srgb&dl=pexels-irina-demyanovskikh-9991032.jpg&fm=jpg",
   ),
+  Course(
+      '11',
+      'Принятие себя',
+      'курс',
+      'dsvsdvsdvs',
+      'Мария Давоян',
+      <String>['тело', 'комплексы'],
+      'https://stakan4ik.ru/images/news/news_20201204119825219.jpg',
+      <Lesson>[]),
   Article(
     "2",
     "Курс с собакой",
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11441228/pexels-photo-11441228.jpeg?cs=srgb&dl=pexels-andrzej-gdula-11441228.jpg&fm=jpg",
   ),
   Article(
@@ -23,6 +37,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11245771/pexels-photo-11245771.jpeg?cs=srgb&dl=pexels-anastasia-tooming-11245771.jpg&fm=jpg",
   ),
   Article(
@@ -31,6 +46,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11591317/pexels-photo-11591317.jpeg?cs=srgb&dl=pexels-alyona-boytsova-11591317.jpg&fm=jpg",
   ),
   Article(
@@ -39,6 +55,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11323431/pexels-photo-11323431.jpeg?cs=srgb&dl=pexels-vladimir-konoplev-11323431.jpg&fm=jpg",
   ),
   Article(
@@ -47,6 +64,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9619531/pexels-photo-9619531.jpeg?cs=srgb&dl=pexels-keith-lobo-9619531.jpg&fm=jpg",
   ),
   Article(
@@ -55,6 +73,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9991032/pexels-photo-9991032.jpeg?cs=srgb&dl=pexels-irina-demyanovskikh-9991032.jpg&fm=jpg",
   ),
   Article(
@@ -63,6 +82,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11441228/pexels-photo-11441228.jpeg?cs=srgb&dl=pexels-andrzej-gdula-11441228.jpg&fm=jpg",
   ),
   Article(
@@ -71,6 +91,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11245771/pexels-photo-11245771.jpeg?cs=srgb&dl=pexels-anastasia-tooming-11245771.jpg&fm=jpg",
   ),
   Article(
@@ -79,6 +100,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11591317/pexels-photo-11591317.jpeg?cs=srgb&dl=pexels-alyona-boytsova-11591317.jpg&fm=jpg",
   ),
   Article(
@@ -87,6 +109,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11323431/pexels-photo-11323431.jpeg?cs=srgb&dl=pexels-vladimir-konoplev-11323431.jpg&fm=jpg",
   ),
   Article(
@@ -95,6 +118,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9619531/pexels-photo-9619531.jpeg?cs=srgb&dl=pexels-keith-lobo-9619531.jpg&fm=jpg",
   ),
   Article(
@@ -103,6 +127,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9991032/pexels-photo-9991032.jpeg?cs=srgb&dl=pexels-irina-demyanovskikh-9991032.jpg&fm=jpg",
   ),
   Article(
@@ -111,6 +136,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11441228/pexels-photo-11441228.jpeg?cs=srgb&dl=pexels-andrzej-gdula-11441228.jpg&fm=jpg",
   ),
   Article(
@@ -119,6 +145,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11245771/pexels-photo-11245771.jpeg?cs=srgb&dl=pexels-anastasia-tooming-11245771.jpg&fm=jpg",
   ),
   Article(
@@ -127,6 +154,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11591317/pexels-photo-11591317.jpeg?cs=srgb&dl=pexels-alyona-boytsova-11591317.jpg&fm=jpg",
   ),
   Article(
@@ -135,6 +163,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/11323431/pexels-photo-11323431.jpeg?cs=srgb&dl=pexels-vladimir-konoplev-11323431.jpg&fm=jpg",
   ),
   Article(
@@ -143,6 +172,7 @@ var MUMMY_DATA = [
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",
+    <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9619531/pexels-photo-9619531.jpeg?cs=srgb&dl=pexels-keith-lobo-9619531.jpg&fm=jpg",
   ),
 ];

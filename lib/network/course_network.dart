@@ -1,11 +1,13 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:courses_app/models/course.dart';
-import 'package:courses_app/models/user.dart';
 
 class CourseNetwork {
   CourseNetwork();
 
-  CollectionReference courses = FirebaseFirestore.instance.collection('courses');
+  CollectionReference courses =
+      FirebaseFirestore.instance.collection('courses');
 
   Future<void> addCourseToDb(Course course) {
     return courses
@@ -13,9 +15,11 @@ class CourseNetwork {
           'id': course.id,
           'section': course.section,
           'text': course.text,
+          'author': course.author,
+          'tags': course.tags,
           'coverImage': course.coverImage,
-          'title' : course.title,
-          'videos' : course.videos
+          'title': course.title,
+          'lessons': course.lessons
         })
         .then((value) => print("Course Added"))
         .catchError((error) => print("Failed to add Course: $error"));
