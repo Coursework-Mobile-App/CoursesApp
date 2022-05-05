@@ -14,7 +14,6 @@
 import 'package:courses_app/models/user.dart';
 import 'package:courses_app/network/user_network.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 import 'navigator_panel/navigator.dart';
 

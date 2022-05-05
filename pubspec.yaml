@@ -41,8 +41,8 @@ dependencies:
   scroll_snap_list: ^0.8.6
   carousel_slider: ^4.1.1
   firebase: ^9.0.2
-  firebase_storage: ^10.2.8
-  firebase_storage_web: ^3.2.9
+  # firebase_storage: ^10.2.8
+  # firebase_storage_web: ^3.2.9
   firebase_core: ^1.16.0
   cloud_firestore: ^3.1.14
   cupertino_back_gesture: ^0.1.0
