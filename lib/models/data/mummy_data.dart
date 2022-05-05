@@ -1,3 +1,6 @@
+import 'package:courses_app/models/course.dart';
+import 'package:courses_app/models/lesson.dart';
+
 import '../article.dart';
 
 var MUMMY_DATA = [
@@ -10,6 +13,15 @@ var MUMMY_DATA = [
     <String>['bananas', 'apples', 'oranges'],
     "https://images.pexels.com/photos/9991032/pexels-photo-9991032.jpeg?cs=srgb&dl=pexels-irina-demyanovskikh-9991032.jpg&fm=jpg",
   ),
+  Course(
+      '11',
+      'Принятие себя',
+      'курс',
+      'dsvsdvsdvs',
+      'Мария Давоян',
+      <String>['тело', 'комплексы'],
+      'https://stakan4ik.ru/images/news/news_20201204119825219.jpg',
+      <Lesson>[]),
   Article(
     "2",
     "Курс с собакой",

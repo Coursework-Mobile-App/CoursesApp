@@ -1,9 +1,10 @@
+import 'package:courses_app/models/item.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../article.dart';
 
 class PresentationWidget extends StatefulWidget {
-  final Article article;
+  final Item article;
   final int id;
 
   PresentationWidget(this.article, this.id);
