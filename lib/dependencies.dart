@@ -11,6 +11,8 @@
 // import 'data_api/network_dao.dart';
 // import 'database/auth_dao.dart';
 
+import 'package:courses_app/models/user.dart';
+import 'package:courses_app/network/user_network.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -20,13 +22,15 @@ class Dependencies {
   // final ProductApiDao productsApi;
   // late final Store<GlobalState> store = MyStoreBuilder.build();
   final AppNavigator navigator;
+  User actualUser;
   // final CartProductDao cartProductDao;
   // final AuthDao authDao;
 
   static late Dependencies _instance;
-  Dependencies._(this.navigator
-      // , this.productsApi, this.cartProductDao, this.authDao
-      );
+  Dependencies._(
+    this.navigator, this.actualUser
+    // , this.productsApi, this.cartProductDao, this.authDao
+  );
 
   static Future<Dependencies> init() async {
     // final hiveBuilder = await HiveBuilder.build();
@@ -39,11 +43,16 @@ class Dependencies {
     //     .getDownloadURL();
     return _instance = Dependencies._(
       AppNavigator(),
+await UserNetwork().getUserFromDb("1"),
       // NetworkApi(),
       // cartProductDao,
       // authDao,
     );
   }
+
+  // void initUser(String id) async {
+  //   actualUser = 
+  // }
 
   static Dependencies get instance => _instance;
 }

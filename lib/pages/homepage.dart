@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
+import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/data/mummy_data.dart';
@@ -60,8 +61,8 @@ class _HomePageState extends State<HomePage> {
                             child: Material(
                               color: Colors.transparent,
                               child: Ink.image(
-                                image: CachedNetworkImageProvider(
-                                    user_info.coverImage),
+                                image: CachedNetworkImageProvider(Dependencies
+                                    .instance.actualUser.coverImage),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Добрый день, Василиса!",
+                              "Добрый день, Vasya!",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,

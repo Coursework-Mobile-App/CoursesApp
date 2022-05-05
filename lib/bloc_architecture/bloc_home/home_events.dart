@@ -19,3 +19,7 @@ class OnClickProfileAction extends HomeBlocEvent {
 class LoadContentAction extends HomeBlocEvent {
   LoadContentAction();
 }
+
+class LoadUserInfoAction extends HomeBlocEvent {
+  LoadUserInfoAction();
+}

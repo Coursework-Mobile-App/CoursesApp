@@ -1,5 +1,6 @@
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/navigator_panel/navigator.dart';
+import 'package:courses_app/network/user_network.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,13 @@ import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  var x = UserNetwork();
+  x.getUserFromDb("1");
   await Dependencies.init();
 
   runApp(MaterialApp(
