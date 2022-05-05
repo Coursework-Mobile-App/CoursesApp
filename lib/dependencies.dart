@@ -11,6 +11,9 @@
 // import 'data_api/network_dao.dart';
 // import 'database/auth_dao.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 import 'navigator_panel/navigator.dart';
 
 class Dependencies {
@@ -21,8 +24,7 @@ class Dependencies {
   // final AuthDao authDao;
 
   static late Dependencies _instance;
-  Dependencies._(
-      this.navigator
+  Dependencies._(this.navigator
       // , this.productsApi, this.cartProductDao, this.authDao
       );
 
@@ -31,6 +33,10 @@ class Dependencies {
     // final cartProductDao = DatabaseApi(database: hiveBuilder.cartBox);
     // final authDao = AuthDaoApi(database: hiveBuilder.userBox);
 
+    // ref = await FirebaseStorage.instance
+    //     .ref()
+    //     .child('IMG_0773.PNG')
+    //     .getDownloadURL();
     return _instance = Dependencies._(
       AppNavigator(),
       // NetworkApi(),

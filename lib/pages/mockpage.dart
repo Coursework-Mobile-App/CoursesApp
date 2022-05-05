@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 class MockPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class MockPage extends StatefulWidget {
 class _MockPageState extends State<MockPage> {
   @override
   Widget build(BuildContext context) {
+    final ref = FirebaseStorage.instance.ref().child('IMG_0773.PNG');
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
