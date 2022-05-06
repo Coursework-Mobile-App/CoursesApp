@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
 
+import '../pages/coursepage.dart';
+
 class AppNavigator {
   // Глобальный навигатор
   static final navigatorKey = GlobalKey<NavigatorState>();
@@ -38,6 +40,13 @@ class AppNavigator {
         builder: (context) => const MockPage(),
       ));
 
+    openCoursePage(Course course) =>
+      navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => CoursePage(
+          course: course,
+        ),
+      ));
+
   openPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const PodcastPage(),
       ));
@@ -46,13 +55,6 @@ class AppNavigator {
       navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => ArticlePage(
           article: article,
-        ),
-      ));
-
-  openCoursePage(Course course) =>
-      navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => CoursePage(
-          course: course,
         ),
       ));
 
