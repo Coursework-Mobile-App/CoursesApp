@@ -33,7 +33,7 @@ class Course extends Item {
 
     // return Text("loading");
     return Course(data['id'], data['title'], data['section'], data['text'],
-        data['author'], data['tags'], data['coverImage'], data['lessons']);
+        data['author'], data['tags'], data['coverImage'], Lesson.parseAll(data['lessons']));
   }
 
   static List<Course> parseAll(QuerySnapshot querySnapshot) {
@@ -48,7 +48,7 @@ class Course extends Item {
         (data['tags'] as List).map((item) => item as String).toList(),
         data['coverImage'],
         // to do!
-        data['lessons'],
+        Lesson.parseAll(data['lessons']),
       ));
     }
     return articles;

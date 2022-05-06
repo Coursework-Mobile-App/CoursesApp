@@ -34,7 +34,7 @@ class CourseNetwork {
     return Course.parse(data);
   }
 
-  Future<List<Course>> getAllArticlesFromDb() async {
+  Future<List<Course>> getAllCoursesFromDb() async {
     var querySnapshot =
         await FirebaseFirestore.instance.collection('courses').get();
     return Course.parseAll(querySnapshot);

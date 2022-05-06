@@ -3,7 +3,6 @@ import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/data/mummy_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +33,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Item> resList = Dependencies.instance.articles;
-  List<Item> courseList = MUMMY_DATA;
+  List<Item> courseList = Dependencies.instance.courses;
 
   @override
   Widget build(BuildContext context) {
@@ -128,21 +127,24 @@ class _HomePageState extends State<HomePage> {
                               //onTap: () {},
                               child: Stack(
                             children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  border: Border.all(color: Color(0xFFEC407A)),
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(7.0),
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.home,
-                                      color: Color(0xFFEC407A),
+                              GestureDetector(
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    border:
+                                        Border.all(color: Color(0xFFEC407A)),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(7.0),
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.home,
+                                        color: Color(0xFFEC407A),
+                                      ),
                                     ),
                                   ),
                                 ),

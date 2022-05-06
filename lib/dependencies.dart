@@ -20,6 +20,7 @@ import 'package:courses_app/network/podcast_network.dart';
 import 'package:courses_app/network/user_network.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'models/course.dart';
 import 'navigator_panel/navigator.dart';
 
 class Dependencies {
@@ -27,9 +28,9 @@ class Dependencies {
   // late final Store<GlobalState> store = MyStoreBuilder.build();
   final AppNavigator navigator;
   User actualUser;
-  final CourseNetwork courseNetwork;
   List<Article> articles;
   List<Podcast> podcasts;
+  List<Course> courses;
   // final CartProductDao cartProductDao;
   // final AuthDao authDao;
 
@@ -39,7 +40,7 @@ class Dependencies {
     this.actualUser,
     this.articles,
     this.podcasts,
-    this.courseNetwork,
+    this.courses,
     // , this.productsApi, this.cartProductDao, this.authDao
   );
 
@@ -52,13 +53,12 @@ class Dependencies {
     //     .ref()
     //     .child('IMG_0773.PNG')
     //     .getDownloadURL();
-    var a = await ArticleNetwork().getAllArticlesFromDb();
     return _instance = Dependencies._(
       AppNavigator(),
       await UserNetwork().getUserFromDb("1"),
       await ArticleNetwork().getAllArticlesFromDb(),
       await PodcastNetwork().getAllPodcastsFromDb(),
-      CourseNetwork(),
+      await CourseNetwork().getAllCoursesFromDb(),
       // NetworkApi(),
       // cartProductDao,
       // authDao,
