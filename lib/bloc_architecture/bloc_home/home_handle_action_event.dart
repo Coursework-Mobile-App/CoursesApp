@@ -9,7 +9,6 @@ mixin HomeHandleActionEvent {
   }
 
   void handleCourseItemActionEvent(Course course) {
-    print("lol");
     Dependencies.instance.navigator.openCoursePage(course);
   }
 
