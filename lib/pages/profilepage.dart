@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/dependencies.dart';
-import 'package:courses_app/models/data/user_data.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -13,7 +12,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = user_info;
+    final user = Dependencies.instance.actualUser;
 
     return Scaffold(
       body: ListView(

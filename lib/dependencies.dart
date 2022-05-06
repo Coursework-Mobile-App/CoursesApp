@@ -11,6 +11,8 @@
 // import 'data_api/network_dao.dart';
 // import 'database/auth_dao.dart';
 
+import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/podcast.dart';
 import 'package:courses_app/models/user.dart';
 import 'package:courses_app/network/article_network.dart';
 import 'package:courses_app/network/course_network.dart';
@@ -25,9 +27,9 @@ class Dependencies {
   // late final Store<GlobalState> store = MyStoreBuilder.build();
   final AppNavigator navigator;
   User actualUser;
-  final PodcastNetwork podcastNetwork;
-  final ArticleNetwork articleNetwork;
   final CourseNetwork courseNetwork;
+  List<Article> articles;
+  List<Podcast> podcasts;
   // final CartProductDao cartProductDao;
   // final AuthDao authDao;
 
@@ -35,8 +37,8 @@ class Dependencies {
   Dependencies._(
     this.navigator,
     this.actualUser,
-    this.articleNetwork,
-    this.podcastNetwork,
+    this.articles,
+    this.podcasts,
     this.courseNetwork,
     // , this.productsApi, this.cartProductDao, this.authDao
   );
@@ -50,11 +52,12 @@ class Dependencies {
     //     .ref()
     //     .child('IMG_0773.PNG')
     //     .getDownloadURL();
+    var a = await ArticleNetwork().getAllArticlesFromDb();
     return _instance = Dependencies._(
       AppNavigator(),
       await UserNetwork().getUserFromDb("1"),
-      ArticleNetwork(),
-      PodcastNetwork(),
+      await ArticleNetwork().getAllArticlesFromDb(),
+      await PodcastNetwork().getAllPodcastsFromDb(),
       CourseNetwork(),
       // NetworkApi(),
       // cartProductDao,

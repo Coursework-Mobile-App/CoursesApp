@@ -15,8 +15,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  var x = UserNetwork();
-  x.getUserFromDb("1");
   await Dependencies.init();
   runApp(BackGestureWidthTheme(
       backGestureWidth: BackGestureWidth.fraction(1 / 2),

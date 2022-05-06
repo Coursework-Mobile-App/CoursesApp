@@ -35,4 +35,22 @@ class Course extends Item {
     return Course(data['id'], data['title'], data['section'], data['text'],
         data['author'], data['tags'], data['coverImage'], data['lessons']);
   }
+
+  static List<Course> parseAll(QuerySnapshot querySnapshot) {
+    final List<Course> articles = [];
+    for (var data in querySnapshot.docs) {
+      articles.add(Course(
+        data['id'],
+        data['title'],
+        data['section'],
+        data['text'],
+        data['author'],
+        (data['tags'] as List).map((item) => item as String).toList(),
+        data['coverImage'],
+        // to do!
+        data['lessons'],
+      ));
+    }
+    return articles;
+  }
 }

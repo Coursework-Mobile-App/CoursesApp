@@ -6,7 +6,7 @@ class Article extends Item {
       List<String> tags, String coverImage)
       : super(id, title, section, text, author, tags, coverImage);
 
-  static parse(DocumentSnapshot<Map<String, dynamic>> data) {
+  static Article parse(DocumentSnapshot<Map<String, dynamic>> data) {
     // mock
     // if (data.hasError) {
     //   return Text("Something went wrong");
@@ -24,5 +24,20 @@ class Article extends Item {
     // return Text("loading");
     return Article(data['id'], data['title'], data['section'], data['text'],
         data['author'], data['tags'], data['coverImage']);
+  }
+
+  static List<Article> parseAll(QuerySnapshot querySnapshot) {
+    final List<Article> articles = [];
+    for (var data in querySnapshot.docs) {
+      articles.add(Article(
+          data['id'],
+          data['title'],
+          data['section'],
+          data['text'],
+          data['author'],
+          (data['tags'] as List).map((item) => item as String).toList(),
+          data['coverImage']));
+    }
+    return articles;
   }
 }

@@ -3,9 +3,7 @@ import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/data/mummy_data.dart';
-import 'package:courses_app/models/data/user_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +33,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Item> resList = DUMMY_DATA;
+  List<Item> resList = Dependencies.instance.articles;
   List<Item> courseList = MUMMY_DATA;
 
   @override
@@ -231,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                           //padding: const EdgeInsets.symmetric(vertical: 15.0),
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: DUMMY_DATA.length,
+                              itemCount: Dependencies.instance.articles.length,
                               itemBuilder: (context, index) {
                                 return GestureDetector(
                                   child: PresentationWidget(

@@ -30,4 +30,10 @@ class ArticleNetwork {
         .get(); //get the data
     return Article.parse(data);
   }
+
+  Future<List<Article>> getAllArticlesFromDb() async {
+    var querySnapshot =
+        await FirebaseFirestore.instance.collection('articles').get();
+    return Article.parseAll(querySnapshot);
+  }
 }

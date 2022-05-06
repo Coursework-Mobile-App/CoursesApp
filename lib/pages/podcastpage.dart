@@ -1,7 +1,7 @@
 import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_events.dart';
+import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/models/widgets/present_podcast.dart';
 import 'package:courses_app/models/data/pummy_data.dart';
@@ -15,7 +15,7 @@ class PodcastPage extends StatefulWidget {
 }
 
 class _PodcastPageState extends State<PodcastPage> {
-  List<Article> resList = DUMMY_DATA;
+  List<Article> resList = Dependencies.instance.articles;
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +78,11 @@ class _PodcastPageState extends State<PodcastPage> {
                       //padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: DUMMY_DATA.length,
+                          itemCount: Dependencies.instance.articles.length,
                           itemBuilder: (context, index) {
                             return GestureDetector(
                                 child:
-                                    PresentPodcast(PUMMY_DATA[index], 230, 300),
+                                    PresentPodcast(Dependencies.instance.podcasts[index], 230, 300),
                                 onTap: () => {
                                       bloc.inEvent.add(OnClickPodcastAction()),
                                     });
@@ -124,9 +124,9 @@ class _PodcastPageState extends State<PodcastPage> {
                       //padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: DUMMY_DATA.length,
+                          itemCount: Dependencies.instance.articles.length,
                           itemBuilder: (context, index) {
-                            return PresentPodcast(PUMMY_DATA[index], 130, 200);
+                            return PresentPodcast(Dependencies.instance.podcasts[index], 130, 200);
                           }),
                     ),
                   ),
@@ -156,9 +156,9 @@ class _PodcastPageState extends State<PodcastPage> {
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (context, i) {
-              return PresentPodcast(PUMMY_DATA[i], 170, 170);
+              return PresentPodcast(Dependencies.instance.podcasts[i], 170, 170);
             },
-            childCount: PUMMY_DATA.length,
+            childCount: Dependencies.instance.podcasts.length,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 0,

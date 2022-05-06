@@ -9,12 +9,13 @@ class PodcastNetwork {
   Future<void> addPodcastToDb(Podcast podcast) {
     return podcasts
         .add({
-          'audio': podcast.id,
-          'title': podcast.title,
-          'section': podcast.section,
-          'info': podcast.info,
           'id' : podcast.id,
+          'title': podcast.title,
+          'info': podcast.info,
+          'section': podcast.section,
+          'author' : podcast.author,
           'coverImage' : podcast.coverImage,
+          'audio': podcast.audio,
         })
         .then((value) => print("Podcast Added"))
         .catchError((error) => print("Failed to add podcast: $error"));
@@ -27,5 +28,11 @@ class PodcastNetwork {
         .doc(id)
         .get(); //get the data
     return Podcast.parse(data);
+  }
+
+    Future<List<Podcast>> getAllPodcastsFromDb() async {
+    var querySnapshot =
+        await FirebaseFirestore.instance.collection('podcasts').get();
+    return Podcast.parseAll(querySnapshot);
   }
 }
