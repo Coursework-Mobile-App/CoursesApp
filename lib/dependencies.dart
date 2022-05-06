@@ -12,6 +12,9 @@
 // import 'database/auth_dao.dart';
 
 import 'package:courses_app/models/user.dart';
+import 'package:courses_app/network/article_network.dart';
+import 'package:courses_app/network/course_network.dart';
+import 'package:courses_app/network/podcast_network.dart';
 import 'package:courses_app/network/user_network.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -22,12 +25,19 @@ class Dependencies {
   // late final Store<GlobalState> store = MyStoreBuilder.build();
   final AppNavigator navigator;
   User actualUser;
+  final PodcastNetwork podcastNetwork;
+  final ArticleNetwork articleNetwork;
+  final CourseNetwork courseNetwork;
   // final CartProductDao cartProductDao;
   // final AuthDao authDao;
 
   static late Dependencies _instance;
   Dependencies._(
-    this.navigator, this.actualUser
+    this.navigator,
+    this.actualUser,
+    this.articleNetwork,
+    this.podcastNetwork,
+    this.courseNetwork,
     // , this.productsApi, this.cartProductDao, this.authDao
   );
 
@@ -42,7 +52,10 @@ class Dependencies {
     //     .getDownloadURL();
     return _instance = Dependencies._(
       AppNavigator(),
-await UserNetwork().getUserFromDb("1"),
+      await UserNetwork().getUserFromDb("1"),
+      ArticleNetwork(),
+      PodcastNetwork(),
+      CourseNetwork(),
       // NetworkApi(),
       // cartProductDao,
       // authDao,
@@ -50,7 +63,7 @@ await UserNetwork().getUserFromDb("1"),
   }
 
   // void initUser(String id) async {
-  //   actualUser = 
+  //   actualUser =
   // }
 
   static Dependencies get instance => _instance;
