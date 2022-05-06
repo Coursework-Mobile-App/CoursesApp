@@ -1,10 +1,17 @@
 import 'package:courses_app/models/article.dart';
 
+import '../../models/course.dart';
+
 abstract class HomeBlocEvent {}
 
 class OnPressContentItemAction extends HomeBlocEvent {
   final Article article;
   OnPressContentItemAction({required this.article});
+}
+
+class OnPressCourseItemAction extends HomeBlocEvent {
+  final Course course;
+  OnPressCourseItemAction({required this.course});
 }
 
 class OnSelectFilterAction extends HomeBlocEvent {

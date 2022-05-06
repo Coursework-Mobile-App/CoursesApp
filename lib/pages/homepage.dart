@@ -11,6 +11,8 @@ import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../models/course.dart';
+
 final styleTags = [
   'Курсы',
   'Математика',
@@ -240,6 +242,11 @@ class _HomePageState extends State<HomePage> {
                                           OnPressContentItemAction(
                                               article:
                                                   resList[index] as Article));
+                                    } else {
+                                      return bloc.inEvent.add(
+                                          OnPressCourseItemAction(
+                                              course:
+                                                  resList[index] as Course));
                                     }
                                   },
                                 );
@@ -311,11 +318,10 @@ class _HomePageState extends State<HomePage> {
                   return bloc.inEvent.add(OnPressContentItemAction(
                       article: products[i] as Article));
                 } else {
-                  print('ff');
+                  return bloc.inEvent.add(
+                      OnPressCourseItemAction(course: products[i] as Course));
                 }
               });
-          //=> bloc.inEvent
-          //.add(OnPressContentItemAction(article: products[i])));
         },
         childCount: products.length,
       ),

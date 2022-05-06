@@ -1,4 +1,5 @@
 import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/course.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/pages/articlepage.dart';
 import 'package:courses_app/pages/mockpage.dart';
@@ -7,6 +8,8 @@ import 'package:courses_app/pages/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
+
+import '../pages/coursepage.dart';
 
 class AppNavigator {
   // Глобальный навигатор
@@ -34,6 +37,13 @@ class AppNavigator {
 
   openMockPage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const MockPage(),
+      ));
+
+    openCoursePage(Course course) =>
+      navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => CoursePage(
+          course: course,
+        ),
       ));
 
   openPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
