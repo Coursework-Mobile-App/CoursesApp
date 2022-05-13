@@ -85,7 +85,8 @@ class _PodcastPageState extends State<PodcastPage> {
                                 child: PresentPodcast(
                                     Dependencies.instance.podcasts[index],
                                     230,
-                                    300),
+                                    300,
+                                    index + 200),
                                 onTap: () => {
                                       bloc.inEvent.add(OnClickPodcastAction()),
                                     });
@@ -132,7 +133,8 @@ class _PodcastPageState extends State<PodcastPage> {
                             return PresentPodcast(
                                 Dependencies.instance.podcasts[index],
                                 130,
-                                200);
+                                200,
+                                index);
                             //return GestureDetector(
                             //child: PresentPodcast(
                             //     PUMMY_DATA[index], 130, 200, index + 100),
@@ -169,7 +171,7 @@ class _PodcastPageState extends State<PodcastPage> {
           delegate: SliverChildBuilderDelegate(
             (context, i) {
               return PresentPodcast(
-                  Dependencies.instance.podcasts[i], 170, 170);
+                  Dependencies.instance.podcasts[i], 170, 170, i + 100);
               /* return GestureDetector(
                                 child: PresentPodcast(
                                     PUMMY_DATA[index], 130, 200, index + 100),

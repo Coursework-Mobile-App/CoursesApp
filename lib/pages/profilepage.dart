@@ -2,7 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_profile/profile_events.dart';
-import 'package:courses_app/models/data/user_data.dart';
+import 'package:courses_app/dependencies.dart';
+//import 'package:courses_app/models/data/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

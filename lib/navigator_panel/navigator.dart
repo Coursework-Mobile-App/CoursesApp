@@ -104,4 +104,12 @@ class AppNavigator {
   pop() {
     return navigatorKey.currentState?.pop();
   }
+
+  void openSearchPage() {}
+
+  void openSearchPodcastPage() {}
+
+  void openFavoritePage() {}
+
+  void openPassedPage() {}
 }
