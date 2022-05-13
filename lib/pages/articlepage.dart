@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+
 
 class ArticlePage extends StatefulWidget {
   ArticlePage({Key? key, required this.article}) : super(key: key);
@@ -12,6 +14,8 @@ class ArticlePage extends StatefulWidget {
 
 class _ArticlePageState extends State<ArticlePage> {
   late final article = widget.article;
+  bool isSelected = false;
+  bool liked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -126,54 +130,52 @@ class _ArticlePageState extends State<ArticlePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(children: [
-                            /*Text.rich(TextSpan(
-                      text: 'Overview',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                        fontSize: 25,
-                      ),
-                    )),*/
-                            /*Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: IconToggleButton(
-                            isSelected: isSelected,
-                            onPressed: () {
-                              setState(
-                                () {
-                                  isSelected = !isSelected;
-                                },
-                              );
-                            },
-                            art: art,
-                          ),
-                        ),
-                      ),
-                    )*/
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text.rich(TextSpan(
+                                  text: 'Год',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black45,
+                                    fontSize: 14,
+                                  ),
+                                )),
+                                SizedBox(height: 3),
+                                Text.rich(TextSpan(
+                                  text: '2021',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87,
+                                    fontSize: 16,
+                                  ),
+                                )),
+                              ],
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 20, top: 0),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: IconToggleButton(
+                                    isSelected: isSelected,
+                                    onPressed: () {
+                                      setState(
+                                        () {
+                                          isSelected = !isSelected;
+                                        },
+                                      );
+                                    },
+                                    art: article,
+                                  ),
+                                ),
+                              ),
+                            )
                           ]),
 
                           // ------
                           //SizedBox(height: 30),
-                          Text.rich(TextSpan(
-                            text: 'Год',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black45,
-                              fontSize: 14,
-                            ),
-                          )),
-                          SizedBox(height: 3),
-                          Text.rich(TextSpan(
-                            text: '2021',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black87,
-                              fontSize: 16,
-                            ),
-                          )),
 
                           // ------
                           SizedBox(height: 30),
@@ -187,7 +189,8 @@ class _ArticlePageState extends State<ArticlePage> {
                           )),
                           SizedBox(height: 3),
                           Text.rich(TextSpan(
-                            text: 'Эксперт во всех вопросах',
+                            text:
+                                'Психолог, Гештальт-терапевт скайпконсультант',
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.black87,
@@ -216,7 +219,7 @@ class _ArticlePageState extends State<ArticlePage> {
 
                           SizedBox(height: 40),
                           Text.rich(TextSpan(
-                            text: 'Первые более или менее достоверные доказательства существования породы относятся к XVI–XVII столетиям. Белые собаки с небольшими темными отметинами изображены на сохранившихся религиозных и светских произведениях искусства тех времен: росписи алтаря в церкви Святой Марии (также известной как «Gospe od anđela») в небольшом городе на курортном острове Лошинь, фреске в монастыре францисканцев в Заостроге, фресках церкви Санта-Мария Новелла во Флоренции, парадных портретах кисти венецианских и тосканских художников, где изображены влиятельные вельможи – например, Козимо II Медичи. Поскольку многие самые ранние свидетельства обнаружены на территории исторической области Далмация, которая ныне является частью Хорватии, именно отсюда принято выводить корни брида. Да и очевидное созвучие названий говорит в пользу этой версии, официально принятой FCI.' +
+                            text: 'У меня несколько раз на консультациях спрашивали – а что такое здоровые отношения между людьми. Я пообещал написать, с энтузиазмом сел за комп и обнаружил, что далеко не на все вопросы о здоровых отношениях у меня на настоящий момент есть четкий ответ. А действительно как четко определить вот сейчас здоровые отношения, а вот теперь нет. Где взять и какие четкие критерии можно использовать для описания здоровых отношений. Однако потом вспомнил, что даже у такой научной дисциплины как психология здоровья нет четких, всеми принятых критериев, я расслабился и сел писать то, как я понимаю эти самые здоровые отношения.' +
                                 '\n\nТам же, на теплых берегах Адриатического моря, увидели свет и некоторые «теоретические» работы. Римско-католическая Джяково-Осиековская архиепархия сохранила в своих архивах хроники епископа Петара Бакича (1719 год) и Андреаса Кечкеметы (1739 год), оба говорят о специфичных для Хорватии собаках Canis Dalmaticus. В 1771 году натуралист из Уэльса Томас Пеннант написал книгу «Синопсис четвероногих», где впервые назвал породу Dalmatian. В 1790 году английский исследователь естественной истории Томас Бьюик включил далматинцев в «Общую историю четвероногих».',
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
@@ -245,6 +248,37 @@ class _ArticlePageState extends State<ArticlePage> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class IconToggleButton extends StatelessWidget {
+  final bool isSelected;
+  final Function onPressed;
+  final Article art;
+  IconToggleButton(
+      {required this.isSelected, required this.onPressed, required this.art});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: IconButton(
+        iconSize: 30.0,
+        color: Colors.black87,
+        disabledColor: Colors.black87,
+        splashColor: Colors.red,
+        highlightColor: Color(0xFFEC407A),
+        padding: EdgeInsets.all(5),
+        icon: Icon(Icons.favorite_border),
+        onPressed: () {
+          /*if (artBox.containsKey(art.id)) {
+            artBox.delete(art.id);
+          } else {
+            artBox.put(art.id, art);
+          }*/
+        },
       ),
     );
   }

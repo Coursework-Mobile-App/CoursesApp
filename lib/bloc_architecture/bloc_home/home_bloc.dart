@@ -54,6 +54,9 @@ class HomeBloc extends BlocBase with HomeHandleActionEvent {
       case OnPressCourseItemAction:
         handleCourseItemActionEvent((event as OnPressCourseItemAction).course);
         break;
+      case OnPressSearchAction:
+        handleSearchEvent();
+        break;
       case OnSelectFilterAction:
         handleOnSelectFilterActionEvent();
         break;

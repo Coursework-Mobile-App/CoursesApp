@@ -12,12 +12,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 final styleTags = [
-  'Курсы',
-  'Математика',
-  'Пение',
-  'Алкоголь',
-  'Караоке',
-  'Метро',
+  'Тело',
+  'Медитация',
+  'Общество',
+  'Здоровье',
+  'Отношения',
+  'Отдых',
   'Буратино',
   'Дельфины',
   'Пионеры',
@@ -105,7 +105,9 @@ class _HomePageState extends State<HomePage> {
                       iconSize: 24,
                       icon: Icon(Icons.search),
                       color: Color(0xFFEC407A),
-                      onPressed: () {},
+                      onPressed: () {
+                        bloc.inEvent.add(OnPressSearchAction());
+                      },
                       // label: const Text('Поиск'),
                     ),
                   ],

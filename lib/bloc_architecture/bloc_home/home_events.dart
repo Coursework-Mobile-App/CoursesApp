@@ -22,6 +22,10 @@ class OnClickProfileAction extends HomeBlocEvent {
   OnClickProfileAction();
 }
 
+class OnPressSearchAction extends HomeBlocEvent {
+  OnPressSearchAction();
+}
+
 class LoadContentAction extends HomeBlocEvent {
   LoadContentAction();
 }

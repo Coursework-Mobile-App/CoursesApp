@@ -3,16 +3,16 @@ import '../article.dart';
 var DUMMY_DATA = [
   Article(
     "1",
-    "Курс с собакой",
+    "Здоровые отношения",
     "страх",
     "grssbsbjbjjbob",
-    "Елизавета Заикина",
+    "Сергей Петров",
     <String>['bananas', 'apples', 'oranges'],
     "https://attuale.ru/wp-content/uploads/2018/11/cfeb41a771d0cb3076043d90dee46063.jpg",
   ),
   Article(
     "2",
-    "Курс с собакой",
+    "Языки любви",
     "страх",
     "grssbsbjbjjbob",
     "Елизавета Заикина",

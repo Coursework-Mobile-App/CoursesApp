@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  audioplayers: ^0.20.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,6 +42,7 @@ dependencies:
   scroll_snap_list: ^0.8.6
   carousel_slider: ^4.1.1
   cupertino_back_gesture: ^0.1.0
+  syncfusion_flutter_sliders: ^20.1.52
 
 dev_dependencies:
   flutter_test:

@@ -44,7 +44,9 @@ class _PodcastPageState extends State<PodcastPage> {
             IconButton(
               icon: Icon(Icons.search),
               color: Color(0xFFEC407A),
-              onPressed: () => null,
+              onPressed: () {
+                return bloc.inEvent.add(OnClickSearchPodcastAction());
+              },
             ),
           ],
         ),
@@ -54,7 +56,7 @@ class _PodcastPageState extends State<PodcastPage> {
             child: Container(
               child: RichText(
                 textAlign: TextAlign.center,
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'Актуальное',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -81,8 +83,8 @@ class _PodcastPageState extends State<PodcastPage> {
                           itemCount: DUMMY_DATA.length,
                           itemBuilder: (context, index) {
                             return GestureDetector(
-                                child:
-                                    PresentPodcast(PUMMY_DATA[index], 230, 300),
+                                child: PresentPodcast(
+                                    PUMMY_DATA[index], 230, 300, index),
                                 onTap: () => {
                                       bloc.inEvent.add(OnClickPodcastAction()),
                                     });
@@ -101,7 +103,7 @@ class _PodcastPageState extends State<PodcastPage> {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: 'Плейлисты с выпусками',
+                  text: 'Слушаем и отдыхаем',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     color: Colors.black,
@@ -126,7 +128,12 @@ class _PodcastPageState extends State<PodcastPage> {
                           scrollDirection: Axis.horizontal,
                           itemCount: DUMMY_DATA.length,
                           itemBuilder: (context, index) {
-                            return PresentPodcast(PUMMY_DATA[index], 130, 200);
+                            return GestureDetector(
+                                child: PresentPodcast(
+                                    PUMMY_DATA[index], 130, 200, index + 100),
+                                onTap: () => {
+                                      bloc.inEvent.add(OnClickPodcastAction()),
+                                    });
                           }),
                     ),
                   ),
@@ -142,11 +149,11 @@ class _PodcastPageState extends State<PodcastPage> {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: const TextSpan(
-                  text: 'Категории',
+                  text: 'Наедине с мыслями',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     color: Colors.black,
-                    fontSize: 19,
+                    fontSize: 21,
                   ),
                 ),
               ),
@@ -156,7 +163,12 @@ class _PodcastPageState extends State<PodcastPage> {
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (context, i) {
-              return PresentPodcast(PUMMY_DATA[i], 170, 170);
+              return GestureDetector(
+                child: PresentPodcast(PUMMY_DATA[i], 170, 170, i + 200),
+                onTap: () => {
+                  bloc.inEvent.add(OnClickPodcastAction()),
+                },
+              );
             },
             childCount: PUMMY_DATA.length,
           ),

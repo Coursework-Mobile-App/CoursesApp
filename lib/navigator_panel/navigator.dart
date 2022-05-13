@@ -3,9 +3,14 @@ import 'package:courses_app/models/course.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/pages/articlepage.dart';
 import 'package:courses_app/pages/coursepage.dart';
+import 'package:courses_app/pages/favoritespage.dart';
 import 'package:courses_app/pages/mockpage.dart';
+import 'package:courses_app/pages/passedpage.dart';
+import 'package:courses_app/pages/playerpage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
+import 'package:courses_app/pages/searchpage.dart';
+import 'package:courses_app/pages/searchpodcastpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
@@ -34,9 +39,8 @@ class AppNavigator {
   //       builder: (context) => const AuthScreen(),
   //     ));
 
-  openMockPage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => const MockPage(),
-      ));
+  openPlayerPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+      builder: (context) => PlayerPage(), fullscreenDialog: true));
 
   openPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const PodcastPage(),
@@ -54,6 +58,22 @@ class AppNavigator {
         builder: (context) => CoursePage(
           course: course,
         ),
+      ));
+
+  openFavoritePage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => FavoritesPages(),
+      ));
+
+  openPassedPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => PassedPage(),
+      ));
+
+  openSearchPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => SearchPage(),
+      ));
+
+  openSearchPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => SearchPodcastPage(),
       ));
 
   // openArticlePage() => navigatorKey.currentState?.push(MaterialPageRoute(
