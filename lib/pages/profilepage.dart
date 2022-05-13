@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<ProfileBloc>(context);
-    final user = user_info;
+    final user = Dependencies.instance.actualUser;
 
     return Scaffold(
       body: ListView(
@@ -63,7 +63,8 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Material(
         color: Colors.transparent,
         child: Ink.image(
-          image: CachedNetworkImageProvider(user_info.coverImage),
+          image: CachedNetworkImageProvider(
+              Dependencies.instance.actualUser.coverImage),
           fit: BoxFit.cover,
           width: 228,
           height: 228,
@@ -100,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Column(
       children: [
         Text(
-          user_info.name,
+          Dependencies.instance.actualUser.name,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 23,
@@ -108,7 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         const SizedBox(height: 6),
         Text(
-          user_info.email,
+          Dependencies.instance.actualUser.email,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.grey,

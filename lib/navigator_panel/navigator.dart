@@ -15,6 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
 
+import '../pages/coursepage.dart';
+
 class AppNavigator {
   // Глобальный навигатор
   static final navigatorKey = GlobalKey<NavigatorState>();
@@ -42,6 +44,13 @@ class AppNavigator {
   openPlayerPage() => navigatorKey.currentState?.push(MaterialPageRoute(
       builder: (context) => PlayerPage(), fullscreenDialog: true));
 
+  openCoursePage(Course course) =>
+      navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => CoursePage(
+          course: course,
+        ),
+      ));
+
   openPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const PodcastPage(),
       ));
@@ -51,29 +60,6 @@ class AppNavigator {
         builder: (context) => ArticlePage(
           article: article,
         ),
-      ));
-
-  openCoursePage(Course course) =>
-      navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => CoursePage(
-          course: course,
-        ),
-      ));
-
-  openFavoritePage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => FavoritesPages(),
-      ));
-
-  openPassedPage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => PassedPage(),
-      ));
-
-  openSearchPage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => SearchPage(),
-      ));
-
-  openSearchPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
-        builder: (context) => SearchPodcastPage(),
       ));
 
   // openArticlePage() => navigatorKey.currentState?.push(MaterialPageRoute(

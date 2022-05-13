@@ -1,15 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_home/home_events.dart';
+import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/course.dart';
-import 'package:courses_app/models/data/dummy_data.dart';
-import 'package:courses_app/models/data/mummy_data.dart';
-import 'package:courses_app/models/data/user_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/course.dart';
 
 final styleTags = [
   'Тело',
@@ -33,8 +32,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Item> resList = DUMMY_DATA;
-  List<Item> courseList = MUMMY_DATA;
+  List<Item> resList = Dependencies.instance.articles;
+  List<Item> courseList = Dependencies.instance.courses;
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +61,8 @@ class _HomePageState extends State<HomePage> {
                             child: Material(
                               color: Colors.transparent,
                               child: Ink.image(
-                                image: CachedNetworkImageProvider(
-                                    user_info.coverImage),
+                                image: CachedNetworkImageProvider(Dependencies
+                                    .instance.actualUser.coverImage),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -77,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Добрый день, Василиса!",
+                              "Добрый день, Vasya!",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -130,21 +129,24 @@ class _HomePageState extends State<HomePage> {
                               //onTap: () {},
                               child: Stack(
                             children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  border: Border.all(color: Color(0xFFEC407A)),
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(7.0),
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.home,
-                                      color: Color(0xFFEC407A),
+                              GestureDetector(
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 5.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    border:
+                                        Border.all(color: Color(0xFFEC407A)),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(7.0),
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.home,
+                                        color: Color(0xFFEC407A),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -231,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                           //padding: const EdgeInsets.symmetric(vertical: 15.0),
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: DUMMY_DATA.length,
+                              itemCount: Dependencies.instance.articles.length,
                               itemBuilder: (context, index) {
                                 return GestureDetector(
                                   child: PresentationWidget(
@@ -322,8 +324,6 @@ class _HomePageState extends State<HomePage> {
                       OnPressCourseItemAction(course: products[i] as Course));
                 }
               });
-          //=> bloc.inEvent
-          //.add(OnPressContentItemAction(article: products[i])));
         },
         childCount: products.length,
       ),

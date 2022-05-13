@@ -1,6 +1,8 @@
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/course.dart';
 
+import '../../models/course.dart';
+
 abstract class HomeBlocEvent {}
 
 class OnPressContentItemAction extends HomeBlocEvent {
@@ -28,4 +30,8 @@ class OnPressSearchAction extends HomeBlocEvent {
 
 class LoadContentAction extends HomeBlocEvent {
   LoadContentAction();
+}
+
+class LoadUserInfoAction extends HomeBlocEvent {
+  LoadUserInfoAction();
 }

@@ -3,7 +3,6 @@ import 'package:courses_app/models/article.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-
 class ArticlePage extends StatefulWidget {
   ArticlePage({Key? key, required this.article}) : super(key: key);
   final Article article;
