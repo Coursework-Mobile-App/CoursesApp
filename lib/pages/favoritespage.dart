@@ -4,8 +4,6 @@ import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/article.dart';
 import 'package:courses_app/models/course.dart';
-import 'package:courses_app/models/data/dummy_data.dart';
-import 'package:courses_app/models/data/mummy_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +17,11 @@ class FavoritesPages extends StatefulWidget {
 }
 
 class _FavoritesPagesState extends State<FavoritesPages> {
-  List<Item> resList = DUMMY_DATA;
-  List<Item> courseList = MUMMY_DATA;
-
+  // List<Item> resList = DUMMY_DATA;
+  // List<Item> courseList = MUMMY_DATA;
+  List<Item> resList = Dependencies.instance.courses;
+  List<Item> courseList = Dependencies.instance.courses;
+  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

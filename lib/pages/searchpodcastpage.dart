@@ -1,4 +1,5 @@
-import 'package:courses_app/models/data/pummy_data.dart';
+
+import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_podcast.dart';
 import 'package:flutter/material.dart';
@@ -47,10 +48,10 @@ class _SearchPodcastPageState extends State<SearchPodcastPage> {
                   crossAxisCount: 1,
                   childAspectRatio: 4 / 4,
                 ),
-                itemCount: PUMMY_DATA.length,
+                itemCount: Dependencies.instance.podcasts.length,
                 itemBuilder: (BuildContext context, int i) {
                   return GestureDetector(
-                      child: PresentPodcast(PUMMY_DATA[i], 230, 300, i),
+                      child: PresentPodcast(Dependencies.instance.podcasts[i], 230, 300, i),
                       onTap: () {});
                 },
               ),

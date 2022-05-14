@@ -1,4 +1,3 @@
-import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +12,8 @@ class PassedPage extends StatefulWidget {
 }
 
 class _PassedPageState extends State<PassedPage> {
-  List<Item> resList = DUMMY_DATA;
-
+  // List<Item> resList = DUMMY_DATA;
+  List<Item> resList = Dependencies.instance.courses;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

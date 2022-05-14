@@ -1,5 +1,4 @@
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/data/dummy_data.dart';
 import 'package:courses_app/models/item.dart';
 import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:flutter/material.dart';

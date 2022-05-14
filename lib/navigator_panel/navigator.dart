@@ -9,12 +9,16 @@ import 'package:courses_app/pages/passedpage.dart';
 import 'package:courses_app/pages/playerpage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
+import 'package:courses_app/pages/registerpage.dart';
 import 'package:courses_app/pages/searchpage.dart';
 import 'package:courses_app/pages/searchpodcastpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:courses_app/navigator_panel/main_panel.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc_architecture/bloc_profile/profile_bloc.dart';
+import '../bloc_architecture/bloc_register/register_bloc.dart';
 import '../pages/coursepage.dart';
 
 class AppNavigator {
@@ -112,4 +116,19 @@ class AppNavigator {
   void openFavoritePage() {}
 
   void openPassedPage() {}
+
+  void openCodePage() {}
+
+  void openMainScreen() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => const MainScreen(),
+        fullscreenDialog: true,
+      ));
+
+  void openRegisterPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          child: CreateScreen(),
+          create: (BuildContext context) => RegisterBloc(),
+        ),
+        fullscreenDialog: true,
+      ));
 }
