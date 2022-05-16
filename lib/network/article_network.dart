@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/user.dart';
 
 class ArticleNetwork {
   ArticleNetwork();

@@ -7,8 +7,9 @@ class PresentPodcast extends StatefulWidget {
   final Podcast article;
   final double widgetHeight;
   final double widgetWidth;
+  final int id;
 
-  PresentPodcast(this.article, this.widgetHeight, this.widgetWidth);
+  PresentPodcast(this.article, this.widgetHeight, this.widgetWidth, this.id);
 
   @override
   State<PresentPodcast> createState() => _PresentPodcastState();
@@ -23,7 +24,7 @@ class _PresentPodcastState extends State<PresentPodcast> {
         Container(
           padding: const EdgeInsets.all(10.0),
           child: Hero(
-            tag: widget.article.coverImage,
+            tag: widget.id,
             child: Material(
               color: Colors.transparent,
               child: Container(

@@ -3,7 +3,7 @@ import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_handle_action
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'podcast_events.dart';
 
-class PodcastBloc extends BlocBase with PodcastHandleActionEvent{
+class PodcastBloc extends BlocBase with PodcastHandleActionEvent {
   // stream controllers
   final StreamController<int> _clickPodcastController = StreamController<int>();
 
@@ -38,6 +38,9 @@ class PodcastBloc extends BlocBase with PodcastHandleActionEvent{
     switch (event.runtimeType) {
       case OnClickPodcastAction:
         handleOnClickPodcastEvent();
+        break;
+      case OnClickSearchPodcastAction:
+        handleOnClickSearchPodcastEvent();
         break;
       default:
         // чтобы гарантировать, что мы не пропустим ни один кейс enum-а

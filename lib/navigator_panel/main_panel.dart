@@ -1,5 +1,6 @@
 import 'package:courses_app/bloc_architecture/bloc_home/home_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_bloc.dart';
+import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/pages/homepage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:courses_app/pages/profilepage.dart';
@@ -47,7 +48,10 @@ class MainScreenState extends State<MainScreen> {
               child: const PodcastPage(),
               create: (BuildContext context) => PodcastBloc(),
             ),
-            const ProfilePage(),
+            BlocProvider(
+              child: const ProfilePage(),
+              create: (BuildContext context) => ProfileBloc(),
+            )
             // const PodcastPage(),
             // const ProfilePage(),
           ][currentTab],

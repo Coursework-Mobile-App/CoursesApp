@@ -1,4 +1,9 @@
-enum ProfileBlocEvent {
- setCoursesAction
- // ...другие события, которые будет обрабатывать Bloc
+abstract class ProfileBlocEvent {}
+
+class OnFavouritesClick extends ProfileBlocEvent {
+  OnFavouritesClick();
+}
+
+class OnPassedClick extends ProfileBlocEvent {
+  OnPassedClick();
 }

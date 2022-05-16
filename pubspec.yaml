@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  audioplayers: ^0.20.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -46,6 +47,13 @@ dependencies:
   firebase_core: ^1.16.0
   cloud_firestore: ^3.1.14
   cupertino_back_gesture: ^0.1.0
+  syncfusion_flutter_sliders: ^20.1.52
+  firebase_storage: ^10.2.16
+  firebase_storage_web: ^3.2.15
+  image_picker: ^0.8.5+3
+  flutter_signin_button: ^2.0.0
+  http: ^0.13.4
+  path_provider: ^2.0.10
 
 dev_dependencies:
   flutter_test:
@@ -60,10 +68,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
-
+  assets:
+    - assets/telochki.jpg  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

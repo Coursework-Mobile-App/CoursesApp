@@ -1,4 +1,5 @@
 import 'package:courses_app/models/article.dart';
+import 'package:courses_app/models/course.dart';
 
 import '../../models/course.dart';
 
@@ -21,6 +22,10 @@ class OnSelectFilterAction extends HomeBlocEvent {
 
 class OnClickProfileAction extends HomeBlocEvent {
   OnClickProfileAction();
+}
+
+class OnPressSearchAction extends HomeBlocEvent {
+  OnPressSearchAction();
 }
 
 class LoadContentAction extends HomeBlocEvent {

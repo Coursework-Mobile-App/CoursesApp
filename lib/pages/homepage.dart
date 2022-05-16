@@ -11,12 +11,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../models/course.dart';
 
 final styleTags = [
-  'Курсы',
-  'Математика',
-  'Пение',
-  'Алкоголь',
-  'Караоке',
-  'Метро',
+  'Тело',
+  'Медитация',
+  'Общество',
+  'Здоровье',
+  'Отношения',
+  'Отдых',
   'Буратино',
   'Дельфины',
   'Пионеры',
@@ -75,8 +75,8 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
-                              "Добрый день, Vasya!",
+                           Text(
+                              "Добрый день, ${Dependencies.instance.actualUser.name}!",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -104,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                       iconSize: 24,
                       icon: Icon(Icons.search),
                       color: Color(0xFFEC407A),
-                      onPressed: () {},
+                      onPressed: () {
+                        bloc.inEvent.add(OnPressSearchAction());
+                      },
                       // label: const Text('Поиск'),
                     ),
                   ],

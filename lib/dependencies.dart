@@ -55,6 +55,7 @@ class Dependencies {
     //     .getDownloadURL();
     return _instance = Dependencies._(
       AppNavigator(),
+
       await UserNetwork().getUserFromDb("1"),
       await ArticleNetwork().getAllArticlesFromDb(),
       await PodcastNetwork().getAllPodcastsFromDb(),
