@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/navigator_panel/navigator.dart';
+import 'package:courses_app/network/article_network.dart';
 import 'package:courses_app/network/podcast_network.dart';
 import 'package:courses_app/network_api_reccomend.dart';
 import 'package:courses_app/pages/authpage.dart';

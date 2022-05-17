@@ -1,47 +1,37 @@
 import 'dart:async';
 import 'package:courses_app/bloc_architecture/bloc_profile/profile_handle_action_event.dart';
-import 'package:courses_app/models/podcast.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../models/article.dart';
 import 'profile_events.dart';
 
 class ProfileBloc extends BlocBase with ProfileHandleActionEvent {
   // данные Bloc-а
-static var p = [
-    Podcast('7', 'Вегетарианство', 'Питаемся без мяса', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/6647911/pexels-photo-6647911.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'),
 
-    Podcast('8', 'Введение в буддизм', 'Культурно развиваемся', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/9408318/pexels-photo-9408318.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('9', 'Будет ли кризис?', 'Подготавливаем финансовую подушку', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/258644/pexels-photo-258644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('10', 'Как выбрать ноутбук?', '16 Гб или 8Гб оперативы?', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/5698417/pexels-photo-5698417.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'),
-
-    Podcast('11', 'Зовем девушку на свидание', 'Говорим правильные вещи', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/2145/sea-sunset-beach-couple.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('12', 'Знакомимся с историей', 'Значимость Ивана Грозного', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/1172018/pexels-photo-1172018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('13', 'Учимся программировать', 'Знакомимся с Python', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/5749818/pexels-photo-5749818.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('14', 'Зачем носить очки?', 'Поддерживаем зрение', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('15', 'Забота о себе', 'Следим за режимом', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/7162257/pexels-photo-7162257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('16', 'Делаем ремонт', 'Выбираем обои', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/3933229/pexels-photo-3933229.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('17', 'Обработка фото', 'Знакомимся с Photoshop', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-
-    Podcast('18', 'Уборка дома', 'Как не устать?', 'd', 'Мария', '',
-        'https://images.pexels.com/photos/4108709/pexels-photo-4108709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+  static List<Article> p = [
+    Article('7', 'Салаты', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/4198024/pexels-photo-4198024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('8', 'Выбор дивана', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/6315802/pexels-photo-6315802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('9', 'Стильные кроссовки', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/8386605/pexels-photo-8386605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('10', 'Умные часы', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/1682821/pexels-photo-1682821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('11', 'Лучшие фильмы 2022', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/2910028/pexels-photo-2910028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('12', 'Красивые виды Москвы', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/753339/pexels-photo-753339.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('13', 'Лучшие отели Петербурга', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('14', 'Писатели 19 века', 'П', 'd', 'Мария', [''],
+        'https://globalmsk.ru/usr/person/big-person-15629077401.jpg'),
+    Article('15', 'Работа - уборщик туалетов', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/9462143/pexels-photo-9462143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('17', 'Самый модный дом', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/1187777/pexels-photo-1187777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('15', 'Становление Лос-Анджелеса', 'П', 'd', 'Мария', [''],
+        'https://images.pexels.com/photos/10971412/pexels-photo-10971412.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+    Article('18', 'Кибербулинг', 'П', 'd', 'Мария', [''],
+        'https://media.istockphoto.com/photos/cyber-bullying-concept-people-using-notebook-computer-laptop-for-picture-id1170461091?s=612x612'),
   ];
   final StreamController<ProfileBlocEvent> _eventController =
       StreamController<ProfileBlocEvent>();

@@ -21,6 +21,20 @@ class NetworkApiReccomendPodsystem {
     );
   }
 
+  searchPodcast(query, tags, id) {
+    return post(
+      Uri.parse('http://127.0.0.1:8000/podcasts/search_by_query'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'query': query,
+        'tags': tags,
+        'client_id': id,
+      }),
+    );
+  }
+
 
   downloadImageToFirebaseStorage(file) async {
     final storageRef = FirebaseStorage.instance.ref();

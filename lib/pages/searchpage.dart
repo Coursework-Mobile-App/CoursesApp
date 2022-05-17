@@ -21,7 +21,7 @@ class _SearchPageState extends State<SearchPage> {
   void initState() {
     super.initState();
     Dependencies.instance.courses.sort((a, b) => a.id.compareTo(b.id));
-    onChanged('');
+    // onChanged('');
   }
 
   NetworkApiReccomendPodsystem rec = NetworkApiReccomendPodsystem();

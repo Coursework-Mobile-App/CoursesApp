@@ -16,6 +16,7 @@ class ArticleNetwork {
           'section': article.section,
           'text': article.text,
           'title': article.title,
+          'tags': <String>[],
         })
         .then((value) => print("Article Added"))
         .catchError((error) => print("Failed to add article: $error"));

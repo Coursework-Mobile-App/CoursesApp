@@ -115,7 +115,9 @@ class AppNavigator {
     ));
   }
 
-  void openSearchPodcastPage() {}
+  void openSearchPodcastPage() => navigatorKey.currentState?.push(MaterialPageRoute(
+        builder: (context) => const SearchPodcastPage(),
+      ));
 
   void openFavoritePage() => navigatorKey.currentState?.push(MaterialPageRoute(
         builder: (context) => const FavoritesPages(),
