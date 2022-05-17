@@ -169,6 +169,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     _validateMail = false;
                   });
                 } else {
+                  print('object');
                   bloc.inEvent.add(OnSendClick());
                 }
               },

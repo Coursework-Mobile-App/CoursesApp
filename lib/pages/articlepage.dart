@@ -157,16 +157,25 @@ class _ArticlePageState extends State<ArticlePage> {
                                     const EdgeInsets.only(right: 20, top: 0),
                                 child: Align(
                                   alignment: Alignment.centerRight,
-                                  child: IconToggleButton(
-                                    isSelected: isSelected,
-                                    onPressed: () {
-                                      setState(
-                                        () {
-                                          isSelected = !isSelected;
-                                        },
-                                      );
+                                  child: IconButton(
+                                    color: Colors.black,
+                                    icon: Icon(
+                                      liked
+                                          ? Icons.favorite
+                                          : Icons.favorite_border,
+                                    ),
+                                    iconSize: 23,
+                                    onPressed: () async {
+                                      if (liked) {
+                                        setState(() {
+                                          liked = false;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          liked = true;
+                                        });
+                                      }
                                     },
-                                    art: article,
                                   ),
                                 ),
                               ),
@@ -247,37 +256,6 @@ class _ArticlePageState extends State<ArticlePage> {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class IconToggleButton extends StatelessWidget {
-  final bool isSelected;
-  final Function onPressed;
-  final Article art;
-  IconToggleButton(
-      {required this.isSelected, required this.onPressed, required this.art});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: IconButton(
-        iconSize: 30.0,
-        color: Colors.black87,
-        disabledColor: Colors.black87,
-        splashColor: Colors.red,
-        highlightColor: Color(0xFFEC407A),
-        padding: EdgeInsets.all(5),
-        icon: Icon(Icons.favorite_border),
-        onPressed: () {
-          /*if (artBox.containsKey(art.id)) {
-            artBox.delete(art.id);
-          } else {
-            artBox.put(art.id, art);
-          }*/
-        },
       ),
     );
   }

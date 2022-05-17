@@ -1,10 +1,10 @@
 import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_bloc.dart';
 import 'package:courses_app/bloc_architecture/bloc_podcast/podcast_events.dart';
 import 'package:courses_app/dependencies.dart';
-import 'package:courses_app/models/article.dart';
-import 'package:courses_app/models/widgets/present_article.dart';
 import 'package:courses_app/models/widgets/present_podcast.dart';
 import 'package:flutter/material.dart';
+
+import '../models/podcast.dart';
 
 class PodcastPage extends StatefulWidget {
   const PodcastPage({Key? key}) : super(key: key);
@@ -14,11 +14,14 @@ class PodcastPage extends StatefulWidget {
 }
 
 class _PodcastPageState extends State<PodcastPage> {
-  List<Article> resList = Dependencies.instance.articles;
+  List<Podcast> resList = Dependencies.instance.podcasts;
 
   @override
   Widget build(BuildContext context) {
     PodcastBloc bloc = PodcastBloc();
+    List<Podcast> relaxList = new List.from(resList.reversed);
+    List<Podcast> aloneList =
+        new List.from([resList[1], resList[4], resList[10], resList[14]]);
     return CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -79,14 +82,11 @@ class _PodcastPageState extends State<PodcastPage> {
                       //padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: Dependencies.instance.articles.length,
+                          itemCount: resList.length,
                           itemBuilder: (context, index) {
                             return GestureDetector(
                                 child: PresentPodcast(
-                                    Dependencies.instance.podcasts[index],
-                                    230,
-                                    300,
-                                    index + 200),
+                                    resList[index], 230, 300, index + 200),
                                 onTap: () => {
                                       bloc.inEvent.add(OnClickPodcastAction()),
                                     });
@@ -128,13 +128,10 @@ class _PodcastPageState extends State<PodcastPage> {
                       //padding: const EdgeInsets.symmetric(vertical: 15.0),
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: Dependencies.instance.articles.length,
+                          itemCount: relaxList.length,
                           itemBuilder: (context, index) {
                             return PresentPodcast(
-                                Dependencies.instance.podcasts[index],
-                                130,
-                                200,
-                                index);
+                                relaxList[index], 130, 200, index);
                             //return GestureDetector(
                             //child: PresentPodcast(
                             //     PUMMY_DATA[index], 130, 200, index + 100),
@@ -170,8 +167,7 @@ class _PodcastPageState extends State<PodcastPage> {
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (context, i) {
-              return PresentPodcast(
-                  Dependencies.instance.podcasts[i], 170, 170, i + 100);
+              return PresentPodcast(aloneList[i], 170, 170, i + 100);
               /* return GestureDetector(
                                 child: PresentPodcast(
                                     PUMMY_DATA[index], 130, 200, index + 100),
@@ -179,7 +175,7 @@ class _PodcastPageState extends State<PodcastPage> {
                                       bloc.inEvent.add(OnClickPodcastAction()),
                                     });*/
             },
-            childCount: Dependencies.instance.podcasts.length,
+            childCount: aloneList.length,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 0,

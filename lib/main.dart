@@ -35,7 +35,7 @@ void main() async {
               TargetPlatform.iOS:
                   CupertinoPageTransitionsBuilderCustomBackGestureWidth(),
             })),
-        home: Dependencies.instance.actualUser.name != 'Vasya'
+        home: Dependencies.instance.actualUser.name != 'Виктория'
             ? MainScreen(
                 key: AppNavigator.bottomBarKey,
               )
