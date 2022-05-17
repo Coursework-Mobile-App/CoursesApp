@@ -293,11 +293,11 @@ class _HomePageState extends State<HomePage> {
                   builder: (context, i) {
                     final currentTab = tabController.index;
                     if (currentTab == 0) {
-                      return buildTab(courseList, bloc);
+                      return buildTab(courseList, resList, bloc, 1);
                     } else if (currentTab == 1) {
-                      return buildTab(resList, bloc);
+                      return buildTab(courseList, resList, bloc, 2);
                     } else {
-                      return buildTab(resList, bloc);
+                      return buildTab(courseList, resList, bloc, 3);
                     }
                   },
                 );
@@ -309,7 +309,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildTab(List<Item> products, HomeBloc bloc) {
+  Widget buildTab(
+      List<Item> courses, List<Item> articles, HomeBloc bloc, int index) {
+    List<Item> products = [];
+    if (index == 1) {
+      products = courses;
+    } else if (index == 2) {
+      products = new List.from(articles.reversed);
+    } else {
+      products =
+          new List.from([articles[8], courses[4], articles[3], courses[2]]);
+    }
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, i) {

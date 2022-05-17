@@ -1,11 +1,7 @@
 import 'dart:io';
 
-import 'package:courses_app/bloc_architecture/bloc_profile/profile_bloc.dart';
 import 'package:courses_app/dependencies.dart';
 import 'package:courses_app/navigator_panel/navigator.dart';
-import 'package:courses_app/network/article_network.dart';
-import 'package:courses_app/network/podcast_network.dart';
-import 'package:courses_app/network_api_reccomend.dart';
 import 'package:courses_app/pages/authpage.dart';
 import 'package:courses_app/pages/podcastpage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,6 +22,9 @@ void main() async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   await Dependencies.init();
+  // Dependencies.instance.actualUser = Null;
+  // _uploadImage();
+  // _downloadImage();
   runApp(BackGestureWidthTheme(
       backGestureWidth: BackGestureWidth.fraction(1 / 2),
       child: MaterialApp(
@@ -37,7 +36,7 @@ void main() async {
               TargetPlatform.iOS:
                   CupertinoPageTransitionsBuilderCustomBackGestureWidth(),
             })),
-        home: Dependencies.instance.actualUser.name != 'Vasya'
+        home: Dependencies.instance.actualUser.name != 'Виктория'
             ? MainScreen(
                 key: AppNavigator.bottomBarKey,
               )

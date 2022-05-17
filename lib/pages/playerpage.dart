@@ -141,24 +141,43 @@ class _PlayerPageState extends State<PlayerPage> {
                 ],
               ),
             ),
-            CircleAvatar(
-              radius: 35,
-              backgroundColor: Colors.black,
-              child: IconButton(
-                color: Colors.white,
-                icon: Icon(
-                  widget.isPlaying ? Icons.pause : Icons.play_arrow,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.fast_rewind,
+                  size: 40,
                 ),
-                iconSize: 50,
-                onPressed: () async {
-                  if (widget.isPlaying) {
-                    await widget.audioPlayer.pause();
-                  } else {
-                    await widget.audioPlayer.resume();
-                  }
-                },
-              ),
-            )
+                SizedBox(
+                  width: 15,
+                ),
+                CircleAvatar(
+                  radius: 35,
+                  backgroundColor: Colors.black,
+                  child: IconButton(
+                    color: Colors.white,
+                    icon: Icon(
+                      widget.isPlaying ? Icons.pause : Icons.play_arrow,
+                    ),
+                    iconSize: 50,
+                    onPressed: () async {
+                      if (widget.isPlaying) {
+                        await widget.audioPlayer.pause();
+                      } else {
+                        await widget.audioPlayer.resume();
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Icon(
+                  Icons.fast_forward,
+                  size: 40,
+                ),
+              ],
+            ),
           ],
         ),
       ),

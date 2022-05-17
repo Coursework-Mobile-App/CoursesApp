@@ -1,4 +1,6 @@
 import 'package:courses_app/bloc_architecture/bloc_auth/auth_events.dart';
+import 'package:courses_app/bloc_architecture/bloc_code/auth_events.dart';
+import 'package:courses_app/bloc_architecture/bloc_code/code_bloc.dart';
 import 'package:courses_app/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,13 +14,12 @@ class CodeScreen extends StatefulWidget {
 }
 
 class _CodeScreenState extends State<CodeScreen> {
-  TextEditingController mailController = new TextEditingController();
-  TextEditingController passController = new TextEditingController();
+  TextEditingController codeController = new TextEditingController();
   bool _validatecode = false;
 
   @override
   Widget build(BuildContext context) {
-    final AuthBloc bloc = BlocProvider.of<AuthBloc>(context);
+    final CodeBloc bloc = BlocProvider.of<CodeBloc>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -31,13 +32,13 @@ class _CodeScreenState extends State<CodeScreen> {
                 height: 140,
                 width: 400,
                 child: Icon(
-                  Icons.security_outlined,
+                  Icons.lock_clock_outlined,
                   size: 140,
                   color: Color(0xFFEC407A),
                 )),
           ),
           SizedBox(
-            height: 90,
+            height: 40,
           ),
           Text(
             'Код выслан вам на почту',
@@ -46,7 +47,7 @@ class _CodeScreenState extends State<CodeScreen> {
           Padding(
             padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
             child: TextField(
-              controller: mailController,
+              controller: codeController,
               autofocus: true,
               decoration: InputDecoration(
                 hintText: 'Почта',
@@ -70,6 +71,35 @@ class _CodeScreenState extends State<CodeScreen> {
               ),
               //keyboardType: TextInputType.text,
               textInputAction: TextInputAction.done,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 40, right: 40, top: 30, bottom: 20),
+            child: GestureDetector(
+              onTap: () {
+                if (codeController.text.isEmpty) {
+                  setState(() {
+                    _validatecode = true;
+                  });
+                } else {
+                  print('object');
+                  bloc.inEvent.add(OnSendCodeClick());
+                }
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 70,
+                  color: Color(0xFFEC407A),
+                  child: Center(
+                    child: Text('О Т П Р А В И Т Ь',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
